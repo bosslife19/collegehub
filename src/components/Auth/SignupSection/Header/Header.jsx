@@ -119,7 +119,7 @@ const Header = () => {
             <li key={index} className="relative group w-full">
               <button
                 onClick={() => toggleDropdown(index)}
-                className="flex items-center py-2 px-4 w-full text-left focus:outline-none"
+                className="flex text-[14px]  font-[500] font-nunito items-center py-2 px-4 w-full text-left focus:outline-none"
               >
                 {item.title}
                 <span className="ml-1 text-sm transition-transform duration-300">
@@ -140,7 +140,7 @@ const Header = () => {
                   <li key={linkIndex}>
                     <Link
                       to={link.link}
-                      className="block py-3 px-4    border-[#EAECF0] hover:bg-gray-200"
+                      className="block py-3 px-4 text-[14px] font-[500] font-nunito   border-[#EAECF0] hover:bg-gray-200"
                     >
                       {link.title}
                     </Link>

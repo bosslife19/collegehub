@@ -18,7 +18,7 @@ const Signing = () => {
            
             <div className="flex justify-between  items-center pt-[40px] pb-[10%] gap-5">
              <div className=" border relative border-[#000000]  p-[8px] md:p-[14px] rounded-[4px] flex-1">
-               <label className="absolute top-[-14px] px-1 font-nunito font-[500] text-[13px] leading-[30px] md:text-[19px] z-[10000] bg-[#fff]">
+               <label className="absolute top-[-14px] px-1 font-nunito font-[500] text-[13px] leading-[30px] md:text-[19px]  bg-[#fff]">
                     first name
                 </label>
                 <input 
@@ -37,7 +37,7 @@ const Signing = () => {
                </div>
             </div>
             <div className=" border mb-[10%] relative border-[#000000]  p-[8px] md:p-[14px] rounded-[4px] flex-1">
-               <label className="absolute top-[-14px] px-1 font-nunito font-[500] text-[13px] leading-[30px] md:text-[19px] z-[10000] bg-[#fff]">
+               <label className="absolute top-[-14px] px-1 font-nunito font-[500] text-[13px] leading-[30px] md:text-[19px]  bg-[#fff]">
                     Email
                 </label>
                 <input 
@@ -46,7 +46,7 @@ const Signing = () => {
                 />
                </div>
                <div className=" border relative border-[#000000]  p-[8px] md:p-[14px] rounded-[4px] flex-1">
-               <label className="absolute top-[-14px] px-1 font-nunito font-[500] text-[13px] leading-[30px] md:text-[19px] z-[10000] bg-[#fff]">
+               <label className="absolute top-[-14px] px-1 font-nunito font-[500] text-[13px] leading-[30px] md:text-[19px]  bg-[#fff]">
                     Password
                 </label>
                 <input 

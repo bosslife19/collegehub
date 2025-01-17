@@ -47,7 +47,7 @@ const Sub = () => {
   ]
 
   return (
-    <div className="px-4 py-8 bg-[#F4E2EF] text-[#fff] font-poppins">
+    <div className="px-4 md:px-[40px] py-8 bg-[#F4E2EF] text-[#fff] font-poppins">
     <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
     {subscribe.map((items, index)=>(
         <div key={index} className='flex w-full  bg-[#91447B] justify-center border px-[25px] pt-[13px] pb-[0.3%] rounded-[25px] flex-col '>
