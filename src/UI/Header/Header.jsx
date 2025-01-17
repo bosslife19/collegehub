@@ -1,15 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaUserLarge } from "react-icons/fa6";
-import { HiOutlineLogout } from "react-icons/hi";
+ import { HiOutlineLogout } from "react-icons/hi";
 import AvatarDropdown from "./AvatarDropdown";
-import "flag-icons/css/flag-icons.min.css"; // Import flag icons CSS
-import Search from "../Input/components/Search";
+ import Search from "../Input/components/Search";
 
 const Header = ({ sidebarOpen, setSidebarOpen }) => {
   const [searchQuery, setSearchQuery] = useState(''); // State to manage search input
   const [dropdownOpen, setDropdownOpen] = useState(null); // State to track which dropdown is open
-  const [selectedLanguage, setSelectedLanguage] = useState("en-US");
+  // const [selectedLanguage, setSelectedLanguage] = useState("en-US");
   const navigate = useNavigate();
 
   const dropdownOptions = [
@@ -26,16 +24,16 @@ const Header = ({ sidebarOpen, setSidebarOpen }) => {
   ];
 
   // List of available languages with flag-icon classes
-  const languages = [
-    { code: "en-GB", name: "English (UK)", flagClass: "fi-gb" },
-    { code: "en-US", name: "English (US)", flagClass: "fi-us" },
-  ];
+  // const languages = [
+  //   { code: "en-GB", name: "English (UK)", flagClass: "fi-gb" },
+  //   { code: "en-US", name: "English (US)", flagClass: "fi-us" },
+  // ];
 
-  const handleLanguageChange = (language) => {
-    setSelectedLanguage(language);
-    console.log(`Language changed to: ${language}`);
-    setDropdownOpen(null); // Close both dropdowns
-  };
+  // const handleLanguageChange = (language) => {
+  //   setSelectedLanguage(language);
+  //   console.log(`Language changed to: ${language}`);
+  //   setDropdownOpen(null); // Close both dropdowns
+  // };
 
   const toggleDropdown = (dropdownType) => {
     if (dropdownOpen === dropdownType) {
@@ -87,7 +85,7 @@ const Header = ({ sidebarOpen, setSidebarOpen }) => {
         {/* Header Actions */}
         <div className="flex items-center gap-5">
           {/* Language Selector */}
-          <div className="relative hidden sm:block">
+          {/* <div className="relative hidden sm:block">
             <button
               className="flex items-center gap-2 text-gray-700 hover:text-gray-900"
               onClick={() => toggleDropdown("language")}
@@ -120,7 +118,7 @@ const Header = ({ sidebarOpen, setSidebarOpen }) => {
                 ))}
               </div>
             )}
-          </div>
+          </div> */}
 
           {/* Avatar Dropdown */}
           <div className="border-l-2 pl-4">

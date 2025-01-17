@@ -2,14 +2,16 @@
 import   { useState, useEffect, useMemo, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {  BsMicrosoftTeams } from "react-icons/bs";
- import { IoMdClock, IoMdClose, IoMdSettings } from "react-icons/io";
-import "../../../styles/Admin/overflow_hidden.css";
-import { RiErrorWarningLine } from "react-icons/ri";
-import { LuCalendarDays } from "react-icons/lu";
-import { BiSolidCopyAlt } from "react-icons/bi";
+ import {  IoMdClose, IoMdSettings } from "react-icons/io";
+ import { MdColorLens } from "react-icons/md";
+ import { IoBedSharp } from "react-icons/io5";
+
+// import "../../../styles/Admin/overflow_hidden.css";
+ import { BiSolidCopyAlt } from "react-icons/bi";
 import { FaUsers } from "react-icons/fa";
-import { FaHouseMedical } from "react-icons/fa6";
-import logo from "../../../assets/COMESOLOGO.png"
+import { FaHouseMedical,FaUsersLine  } from "react-icons/fa6";
+ import Logo2 from "../../assets/Logo2";
+// import logo from "../../../assets/COMESOLOGO.png"
 const SideBarItem = ({ sidebarOpen, setSidebarOpen }) => {
   const history = useNavigate();
   const trigger = useRef(null);
@@ -63,9 +65,9 @@ const SideBarItem = ({ sidebarOpen, setSidebarOpen }) => {
 
   const allItems = useMemo(
     () => [
-      { text: "Dashboard", link: "/admin/dashboard", icon: IoMdClock },
-      { text: "Inbox", link: "/admin/inbox", icon: RiErrorWarningLine },
-      { text: "Transactions", link: "/admin/transactions", icon: LuCalendarDays },
+      { text: "Dashboard", link: "/admin/dashboard", icon: MdColorLens },
+      { text: "Inbox", link: "/admin/inbox", icon: FaUsersLine  },
+      { text: "Transactions", link: "/admin/transactions", icon: IoBedSharp },
       { text: "Payout", link: "/admin/payout", icon: BiSolidCopyAlt },
       { text: "Users", link: "/admin/users", icon: FaUsers },
       { text: "Facilities", link: "/admin/facilities", icon: FaHouseMedical },
@@ -155,9 +157,11 @@ const SideBarItem = ({ sidebarOpen, setSidebarOpen }) => {
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="flex items-center justify-between gap-2 px-2 py-[30px] lg:py-[20px]">
-          <Link to="dashboard" >
-            <img src={logo} /> 
+        <div className="flex items-center justify-between gap-2 px-[20px] py-[0px] lg:py-[20px]">
+          <Link to="dashboard"className="flex items-center gap-2" >
+          <Logo2/>
+          <h3 className=" mb-[-30px] font-[700] text-[20px] leading-[30px] font-nunito ">College Hub</h3>
+            {/* <img src={logo} />  */}
           </Link>
 
           <button
@@ -176,13 +180,7 @@ const SideBarItem = ({ sidebarOpen, setSidebarOpen }) => {
             {allItems.map((item, mainIndex) => (
               <div
                 key={mainIndex}
-                className={`${
-                  item.text === "Payout"
-                    ? "md:pb-[50px] border-b md:mb-[20px]"
-                    : item.text === "Team"
-                    ? "md:mb-[20px] md:pb-[100px] border-b"
-                    : ""
-                }`}
+                
               >
                 <div
                   onClick={() => {
@@ -190,18 +188,18 @@ const SideBarItem = ({ sidebarOpen, setSidebarOpen }) => {
                     history(item.link);
                     setSidebarOpen(false);
                   }}
-                  className="py-3 px-6 flex relative cursor-pointer rounded-md"
+                  className="py-3  flex relative cursor-pointer rounded-md"
                 >
                   <div
                     className={`flex items-center justify-start w-full font-[600] leading-[19.1px] font-nunito text-[15px] gap-2 py-3 px-2 rounded-lg ${
                       activeMainIndex === mainIndex
-                        ? "text-white bg-[#0A2EE2] transition-all"
+                        ? "text-[#212047] bg-[#F0F6FF] transition-all"
                         : "text-[#333333] hover:bg-gray hover:bg-opacity-10"
                     }`}
                   >
                     <item.icon
                       color={
-                        activeMainIndex === mainIndex ? "#fff" : "#333333"
+                        activeMainIndex === mainIndex ? "#212047" : "#333333"
                       }
                     />
                     <h2 className="ml-2 lg:inline-block first-step truncate">

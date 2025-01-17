@@ -4,6 +4,8 @@ import Authpage from './components/Auth/SignupSection/Authpage';
 import WelcomeLottie from './alert/welcomLoading/welcomLoading';
 import PageTransition from './UI/Layout/PageTransition';
 import PageNotFound from './UI/PageNotFound';
+import AppLayout from './UI/Layout/AppLayout';
+import Homesection from './components/Dashboards/DashBoardHome/Homesection';
 // import AppLayout from './UI/Layout/AppLayout';
 
 
@@ -75,19 +77,19 @@ function App() {
                 path="/"
                 element={
                   // <ProtectedRoute>
-                    <Authpage />
+                    <AppLayout />
                   // </ProtectedRoute>
                 }
               >
                 {/* Default Dashboard Route */}
-                <Route index element={<Authpage />} />
+                <Route index element={<Homesection />} />
 
                 {/* Dashboard Route */}
                 <Route
-                  path="/admin/dashboard"
+                  path="/dashboard"
                   element={
                     // <PageTransition >
-                    <Authpage />
+                    <Homesection />
                     // </PageTransition>
                   }
                 />
