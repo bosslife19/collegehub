@@ -1,35 +1,158 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Authpage from './components/Auth/SignupSection/Authpage';
+import WelcomeLottie from './alert/welcomLoading/welcomLoading';
+import PageTransition from './UI/Layout/PageTransition';
+import PageNotFound from './UI/PageNotFound';
+// import AppLayout from './UI/Layout/AppLayout';
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isLoading, setIsLoading] = useState(true);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      {isLoading ? (
+        <WelcomeLottie onComplete={() => setIsLoading(false)} />
+      ) : (
+        <BrowserRouter>
+          {/* <AuthProvider> */}
+            <Routes>
+              {/* Public Routes */}
+              <Route
+                path="/login"
+                element={
+                  <PageTransition>
+                    {" "}
+                    <Authpage />{" "} 
+                  </PageTransition>
+                }
+              />
+              <Route path="/Signup" element={<Authpage />} />
+
+              {/* Starting Website Route */}
+{/*  
+              <Route
+                path="/"
+                element={
+                  <ProtectedRoute>
+                    <AppLayouts />
+                  </ProtectedRoute>
+                }
+              >
+                <Route
+                  path="/dashboard"
+                  element={
+                    <ProtectedRoute>
+                      <PageTransitionin>
+                        <Dashboard />
+                      </PageTransitionin>
+                    </ProtectedRoute>
+                  }
+                />
+
+                <Route index element={<Dashboard />} />
+                <Route path="inbox-contents" element={<InboxContent />} />
+
+                <Route path="/payoutDetails" element={<PayoutDetail />} />
+
+                <Route path="/Payments" element={<Payments />} />
+
+                <Route path="payout" element={<PayoutPag />} />
+
+                <Route path="transactions" element={<TransactionPag />} />
+
+                <Route path="settings" element={<SettingsManagemen />} />
+              </Route> */}
+
+              {/* End of website Route */}
+
+              {/* start Admin Route */}
+
+              {/* Admin Routes */}
+
+              <Route
+                path="/"
+                element={
+                  // <ProtectedRoute>
+                    <Authpage />
+                  // </ProtectedRoute>
+                }
+              >
+                {/* Default Dashboard Route */}
+                <Route index element={<Authpage />} />
+
+                {/* Dashboard Route */}
+                <Route
+                  path="/admin/dashboard"
+                  element={
+                    // <PageTransition >
+                    <Authpage />
+                    // </PageTransition>
+                  }
+                />
+
+                {/* Inbox Management */}
+                {/* <Route path="/admin/inbox" element={<Customermangement />} /> */}
+
+                {/* Inbox Contents */}
+                {/* <Route
+                  path="/admin/inbox-contents"
+                  element={<InboxContents />}
+                /> */}
+
+                {/* Product Details */}
+                {/* <Route path="/admin/product/:id" element={<ProductDetails />} /> */}
+
+                {/* Transactions */}
+                {/* <Route
+                  path="/admin/transactions"
+                  element={<TransactionPage />}
+                /> */}
+
+                {/* Payouts */}
+                {/* <Route path="/admin/payout" element={<PayoutPage />} /> */}
+
+                {/* Payout Details */}
+                {/* <Route path="/admin/pays" element={<PayoutDetails />} /> */}
+
+                {/* Settings */}
+                {/* <Route
+                  path="/admin/settings"
+                  element={<SettingsManagement />}
+                /> */}
+
+                {/* User Management */}
+                {/* <Route path="/admin/users" element={<UserManagement />} /> */}
+
+                {/* User Details */}
+                {/* <Route path="/admin/userBoard" element={<UserDetailsPage />} /> */}
+
+                {/* Facilities */}
+                {/* <Route path="/admin/facilities" element={<Facilities />} /> */}
+                {/* Receive */}
+  
+                {/* Health Facility */}
+                {/* <Route
+                  path="/admin/healthFacility"
+                  element={<HealthDetailsPage />}
+                /> */}
+
+                {/* Teams Management */}
+                {/* <Route path="/admin/team" element={<Teamsmanagement />} /> */}
+
+                {/* Team Details */}
+                {/* <Route path="/admin/teamUser" element={<TeamsDetails />} /> */}
+              </Route>
+
+              {/* Fallback Route */}
+              <Route path="*" element={<PageNotFound />} />
+            </Routes>
+          {/* </AuthProvider> */}
+        </BrowserRouter>
+      )}
     </>
-  )
+  );
 }
 
 export default App
