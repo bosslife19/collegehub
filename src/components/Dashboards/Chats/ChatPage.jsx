@@ -4,9 +4,14 @@ import { useState, useEffect, useMemo } from "react";
  import mic  from "../../../assets/mic.png"
  import clip  from "../../../assets/paper-clip.png"
  import record  from "../../../assets/profiles.png"
-import { LuAudioLines } from "react-icons/lu";
-import { FaPause, FaPlay } from "react-icons/fa";
+ import imgss  from "../../../assets/imgprf.png"
+
+ import { PiCheckThin } from "react-icons/pi";
+ import { HiOutlineDotsVertical } from "react-icons/hi";
+ import { FaPause,   FaPhoneAlt, FaPlay, FaVideo } from "react-icons/fa";
 import Ausdio from "../../../assets/audio";
+import Adds from "../../../assets/adds";
+import { CiSearch } from "react-icons/ci";
 
  const ChatPage = () => {
   const [selectedChat, setSelectedChat] = useState(null);
@@ -19,17 +24,45 @@ import Ausdio from "../../../assets/audio";
   const [recordingTime, setRecordingTime] = useState(0);
 //   const [showEmojiPicker, setShowEmojiPicker] = useState(false); // State for controlling emoji picker visibility
 const [audioState, setAudioState] = useState({ playing: null, audio: null });
+const [filterText, setFilterText] = useState("");
+const [activeTab, setActiveTab] = useState("all"); // Tabs: all, unread, favorites
 
   const chats = useMemo(
     () => [
-      { id: 1, name: "John Doe", type: "chat", lastSeen: "10 minutes ago" },
-      { id: 2, name: "Jane Smith", type: "chat", lastSeen: "20 minutes ago" },
-      { id: 3, name: "Team Alpha", type: "group", lastSeen: "5 minutes ago" },
-      { id: 4, name: "Project Beta", type: "group", lastSeen: "30 minutes ago" },
+      { id: 1, name: "John Doe", type: "chat", lastSeen: "10 minutes ago" ,img:record,  hasNotification: true,number:1},
+      { id: 2, name: "Jane Smith", type: "chat", lastSeen: "20 minutes ago", img:imgss ,  hasNotification: true,},
+      { id: 3, name: "Team Alpha", type: "chat", lastSeen: "5 minutes ago" ,img:imgss ,  hasNotification: false,number:4},
+      { id: 4, name: "Project Beta", type: "chat", lastSeen: "30 minutes ago",img:imgss ,  hasNotification: true,number:3 },
+      { id: 5, name: "Project Beta", type: "chat", lastSeen: "30 minutes ago",img:record,  hasNotification: true, },
+      { id: 6, name: "Project Beta", type: "chat", lastSeen: "30 minutes ago",img:record,  hasNotification: true, },
+      { id: 7, name: "Project Beta", type: "chat", lastSeen: "30 minutes ago",img:record,  hasNotification: true, },
+      { id: 8, name: "Project Beta", type: "chat", lastSeen: "30 minutes ago" ,img:record,  hasNotification: true,},
+      { id: 9, name: "Project Beta", type: "chat", lastSeen: "30 minutes ago",img:record,  hasNotification: true, },
+      { id: 10, name: "Project Beta", type: "chat", lastSeen: "30 minutes ago" ,img:record,  hasNotification: true,},
+  
     ],
     []
   );
+  const filteredChats = useMemo(() => {
+    return chats.filter((chat) => {
+      const matchesTab =
+        (activeTab === "all") ||
+        (activeTab === "unread" && chat.unread) ||
+        (activeTab === "favorites" && chat.favorites);
+      const matchesSearch = chat.name.toLowerCase().includes(filterText.toLowerCase());
+      return matchesTab && matchesSearch;
+    });
+  }, [chats, activeTab, filterText]);
 
+  useEffect(() => {
+    if (chats.length > 0) {
+      setSelectedChat(chats[0]);
+      setMessages((prev) => ({
+        ...prev,
+        [chats[0].id]: prev[chats[0].id] || [],
+      }));
+    }
+  }, [chats]);
   useEffect(() => {
     if (chats.length > 0) {
       setSelectedChat(chats[0]);
@@ -136,49 +169,96 @@ const [audioState, setAudioState] = useState({ playing: null, audio: null });
 //   };
 
   return (
-    <div className="flex h-screen">
-      <div className="w-full md:w-1/3 lg:w-1/4 bg-gray-100 border-r border-gray-300">
-        <h2 className="text-lg font-semibold text-gray-800 px-4 py-3 border-b">
+    <div className="flex overflow-y-auto h-screen font-inter gap-[30px]">
+      <div className="w-full px-4 rounded-[20px] scroll-container  pb-[5%] overflow-y-auto fixed md:w-1/3 h-[500px] lg:w-1/4  bg-gray-100 border-r border-gray-300">
+     <div className="flex justify-between items-center  py-[20px]">
+     <h2 className="text-[27px] font-semibold text-gray-800  ">
           Chats
         </h2>
-        <ul className="flex flex-col divide-y">
-          {chats.map((chat) => (
+        <Adds/>
+     </div>
+     <div className="flex justify-around py-3 ">
+        {["all", "unread", "favorites"].map((tab) => (
+          <button
+            key={tab}
+            onClick={() => setActiveTab(tab)}
+            className={`py-2  rounded-md font-[500] leading-3 ${
+              activeTab === tab ? "  text-[#212121]" : "text-[#7C8092] "
+            }`}
+          >
+            {tab.charAt(0).toUpperCase() + tab.slice(1)}
+          </button>
+        ))}
+      </div>
+
+      {/* Search Bar */}
+      <div className="px-[5px] bg-[#fff] flex items-center border border-[#D4D4DD]  my-[5px] rounded-[10px]">
+        <CiSearch className=" text-[#7C8092]"/>
+        <input
+          type="text"
+          placeholder="Search chats..."
+          value={filterText}
+          onChange={(e) => setFilterText(e.target.value)}
+          className="w-full p-2 outline-none  rounded-md text-[15px]"
+        />
+      </div>
+
+      {/* Chat List */}
+      <ul className="flex flex-col   overflow-auto">
+        {filteredChats.length > 0 ? (
+          filteredChats.map((chat) => (
             <li
               key={chat.id}
               onClick={() => handleSelectChat(chat)}
-              className={`cursor-pointer p-3 ${selectedChat?.id === chat.id ? "bg-blue-100 text-blue-700" : "hover:bg-gray-200"}`}
+              className={`cursor-pointer gap-3 px-3 items-center justify-between flex py-[22px] my-2 border rounded-[10px] ${
+                selectedChat?.id === chat.id ? "bg-[#212047] text-[#fff]" : "hover:bg-gray-200"
+              } text-[13px] `}
             >
-              <span className="font-medium">{chat.name}</span>
-              <span className="text-sm text-gray-500 ml-2">
-                {chat.type === "group" ? "(Group)" : ""}
-              </span>
+            <div className="flex gap-3">
+            <img src={chat.img} alt="record" className="w-[18px] md:w-[35px] object-contain" />
+            <div className="flex flex-col">
+              <span className="font-medium text-[15px]">{chat.name}</span>
+           <span className="font-medium texx-[13px]">{chat.name}</span>
+            </div>
+            </div>
+              <div className="   top-1/2 transform -translate-y-1/2 flex items-center">
+          {chat.hasNotification && (
+            <span className="w-[10px] h-[10px] text-[8px] pr-1 pl-1 pb-[12px] text-center   bg-red-500 rounded-full">
+              {chat.number}
+            </span>
+          )}
+          </div>
             </li>
-          ))}
-        </ul>
-      </div>
+          ))
+        ) : (
+          <li className="p-3 text-gray-500 text-center">No chats found</li>
+        )}
+      </ul>
+    </div>
+ 
 
-      <div className="flex-1 flex flex-col overflow-y-auto">
+      <div className="flex-1 flex flex-col fixed rounded-[20px] right-[30px] w-[700px] overflow-y-auto h-[500px]">
         {selectedChat ? (
           <>
             {/* Chat Header */}
-            <div className="border-b border-gray-300 px-4 py-3 flex justify-between items-center">
+            <div className="border-b bg-[#fff]  border-gray-300 px-4 py-3 flex justify-between items-center">
               <div className="flex items-center">
                 <div className="w-10 h-10 rounded-full bg-gray-300 mr-3"></div>
                 <div>
-                  <h3 className="text-lg font-semibold">{selectedChat.name}</h3>
+                  <h3 className="text-[17px] font-semibold">{selectedChat.name}</h3>
                   <span className="text-sm text-gray-500">
                     Last seen: {selectedChat.lastSeen}
                   </span>
                 </div>
               </div>
-              <div className="flex space-x-4">
-                <button className="text-gray-500 hover:text-blue-500">📹</button>
-                <button className="text-gray-500 hover:text-blue-500">📞</button>
-                <button className="text-gray-500 hover:text-blue-500">;</button>
+              <div className="flex space-x-8 text-[#808080] text-[20px] items-center ">
+              <button className=" "><FaPhoneAlt /></button>
+                <button className="text-gray-500 hover:text-blue-500"><FaVideo /></button>
+                <button className="text-gray-500 hover:text-blue-500"><HiOutlineDotsVertical /></button>
               </div>
             </div>
 
-            <div className="flex-1 overflow-y-auto p-4 bg-gray-50">
+            <div className="flex-1 overflow-y-auto scroll-container p-4 bg-gray-50">
               <div className="flex flex-col space-y-4 justify-end items-end">
               {messages[selectedChat.id]?.map((msg, index) =>
             msg.type === "audio" ? (
@@ -201,11 +281,13 @@ const [audioState, setAudioState] = useState({ playing: null, audio: null });
     </div>
   ) : (
     <div
-      key={index}
-      className="self-end bg-blue-100 p-3 rounded-lg max-w-xs"
-    >
-      {msg}
-    </div>
+    key={index}
+    className="flex items-end rounded-l-[50px] rounded-b-[20px] max-w-xs px-[15px] py-[7px] justify-end flex-col bg-[#F4E2EF] break-words overflow-hidden"
+  >
+    <p className="text-[12px] leading-6 break-words w-full px-[10px] pt-[10px]">{msg}</p>
+    <PiCheckThin className="" />
+  </div>
+  
   )
 )}
 
@@ -242,7 +324,7 @@ const [audioState, setAudioState] = useState({ playing: null, audio: null });
           placeholder="Type a message"
           value={newMessage}
           onChange={(e) => setNewMessage(e.target.value)}
-          className="flex-1 border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring focus:ring-blue-300"
+          className="flex-1 border border-gray-300 rounded-[30px] px-3 text-[14px] py-2  outline-none"
         />
          <button
         className="text-gray-500 pl-2 rounded-lg"
