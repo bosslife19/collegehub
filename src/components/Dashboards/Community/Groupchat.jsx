@@ -1,4 +1,5 @@
 import  { useState } from "react";
+import { CiCirclePlus } from "react-icons/ci";
 
 const GroupChatPage = () => {
   const [groups] = useState([
@@ -36,7 +37,7 @@ const GroupChatPage = () => {
   return (
     <div className="flex h-screen">
       {/* Sidebar with Group List */}
-      <div className="w-1/4 bg-gray-100 border-r p-4">
+      <div className="w-1/4 bg-[#91447B] text-[#fff] border-r p-4">
         <h2 className="text-xl font-semibold mb-4">Groups</h2>
         <ul className="space-y-2">
           {groups.map((group) => (
@@ -56,13 +57,13 @@ const GroupChatPage = () => {
       {/* Chat Area */}
       <div className="flex-1 flex flex-col">
         {/* Chat Header */}
-        <div className="bg-white border-b p-4 flex justify-between items-center">
+        <div className="bg-white border-b border-[#91447B] p-4 flex justify-between items-center">
           <h2 className="text-lg font-semibold">{selectedGroup.name}</h2>
           <span className="text-gray-500">Group Chat</span>
         </div>
 
         {/* Messages */}
-        <div className="flex-1 overflow-y-auto p-4 bg-gray-50">
+        <div className="flex-1 overflow-y-auto p-4 bg-[#F4E2EF]">
           {messages
             .filter((msg) => msg.groupId === selectedGroup.id)
             .map((msg, index) => (
@@ -73,21 +74,22 @@ const GroupChatPage = () => {
                 }`}
               >
                 <p className="text-sm font-medium">{msg.sender}</p>
-                <p className="inline-block bg-gray-200 p-2 rounded">{msg.text}</p>
+                <p className="inline-block bg-[#91447B] p-2 rounded">{msg.text}</p>
                 <p className="text-xs text-gray-500">{msg.time}</p>
               </div>
             ))}
         </div>
 
         {/* Message Input */}
-        <div className="bg-white border-t p-4">
+        <div className="bg-[#91447B] border-t p-4">
           <form className="flex items-center" onSubmit={handleSendMessage}>
+           <CiCirclePlus className="text-[#fff] text-[30px]"/>
             <input
               type="text"
               value={newMessage}
               onChange={(e) => setNewMessage(e.target.value)}
               placeholder="Type your message..."
-              className="flex-1 border rounded px-3 py-2 mr-2 outline-none"
+              className="flex-1 border border-[#91447B] rounded px-3 py-2 mr-2 outline-none bg-[#91447B]"
             />
             <button
               type="submit"

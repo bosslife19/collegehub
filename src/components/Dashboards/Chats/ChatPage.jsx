@@ -30,15 +30,15 @@ const [activeTab, setActiveTab] = useState("all"); // Tabs: all, unread, favorit
   const chats = useMemo(
     () => [
       { id: 1, name: "John Doe", type: "chat", lastSeen: "10 minutes ago" ,img:record,  hasNotification: true,number:1},
-      { id: 2, name: "Jane Smith", type: "chat", lastSeen: "20 minutes ago", img:imgss ,  hasNotification: true,},
+      { id: 2, name: "Jane Smith", type: "chat", lastSeen: "20 minutes ago", img:imgss ,  hasNotification: true,number:3 },
       { id: 3, name: "Team Alpha", type: "chat", lastSeen: "5 minutes ago" ,img:imgss ,  hasNotification: false,number:4},
       { id: 4, name: "Project Beta", type: "chat", lastSeen: "30 minutes ago",img:imgss ,  hasNotification: true,number:3 },
-      { id: 5, name: "Project Beta", type: "chat", lastSeen: "30 minutes ago",img:record,  hasNotification: true, },
-      { id: 6, name: "Project Beta", type: "chat", lastSeen: "30 minutes ago",img:record,  hasNotification: true, },
-      { id: 7, name: "Project Beta", type: "chat", lastSeen: "30 minutes ago",img:record,  hasNotification: true, },
-      { id: 8, name: "Project Beta", type: "chat", lastSeen: "30 minutes ago" ,img:record,  hasNotification: true,},
-      { id: 9, name: "Project Beta", type: "chat", lastSeen: "30 minutes ago",img:record,  hasNotification: true, },
-      { id: 10, name: "Project Beta", type: "chat", lastSeen: "30 minutes ago" ,img:record,  hasNotification: true,},
+      { id: 5, name: "Project Beta", type: "chat", lastSeen: "30 minutes ago",img:record,  hasNotification: true,number:3  },
+      { id: 6, name: "Project Beta", type: "chat", lastSeen: "30 minutes ago",img:record,  hasNotification: true,number:3  },
+      { id: 7, name: "Project Beta", type: "chat", lastSeen: "30 minutes ago",img:record,  hasNotification: true,number:3  },
+      { id: 8, name: "Project Beta", type: "chat", lastSeen: "30 minutes ago" ,img:record,  hasNotification: true,number:3 },
+      { id: 9, name: "Project Beta", type: "chat", lastSeen: "30 minutes ago",img:record,  hasNotification: true,number:3  },
+      { id: 10, name: "Project Beta", type: "chat", lastSeen: "30 minutes ago" ,img:record,  hasNotification: true,number:3 },
   
     ],
     []
@@ -221,9 +221,9 @@ const [activeTab, setActiveTab] = useState("all"); // Tabs: all, unread, favorit
            <span className="font-medium texx-[13px]">{chat.name}</span>
             </div>
             </div>
-              <div className="   top-1/2 transform -translate-y-1/2 flex items-center">
+              <div className="   top-1/2 transform  flex items-end py-1 px-2 text-center ">
           {chat.hasNotification && (
-            <span className="w-[10px] h-[10px] text-[5px] md:text-[7px] pr-1 pl-1 pb-[8px] md:pb-[12px] text-center   bg-red-500 rounded-full">
+            <span className="  text-[5px] md:text-[7px] text-[#fff] font-[400]  text-center flex items-end mx-auto  bg-red-500 rounded-full  top-1/2 transform    py-1 px-2 ">
               {chat.number}
             </span>
           )}
@@ -294,7 +294,7 @@ const [activeTab, setActiveTab] = useState("all"); // Tabs: all, unread, favorit
               </div>
             </div>
 
-            <div className=" t bg-[#fff] border-gray-300 p-4 rounded-b-[20px] flex items-center space-x-3">
+            <div className=" bg-[#fff] border-gray-300 p-4 rounded-b-[20px] flex items-center space-x-3">
   {isRecording ? (
     <div className="flex items-center justify-between w-full">
       <div className="flex items-center space-x-2">
