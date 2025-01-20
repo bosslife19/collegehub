@@ -79,6 +79,63 @@
   scrollbar-width: none;  /* For Firefox */
 }
 
+.bgimg{
+  border: 15px solid #FFFFFF;
+  border-radius: 10px;
+  background:linear-gradient(to right, #91447B40, #91447B40), url("./assets/slide2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  
+  height: 300px;
+ }
+
+ .bgimg{
+  border: 15px solid #FFFFFF;
+  border-radius: 10px;
+  background:linear-gradient(to right, #91447B40, #91447B40), url("./assets/slide2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  
+  height: 300px;
+ }
+ .bgimgs{
+  border-top: 8px solid #FFFFFF;
+  border-left: 15px solid #FFFFFF;
+  border-bottom: 8px solid #FFFFFF;
+  border-right: 15px solid #FFFFFF;
+  border-radius: 10px;
+  background:linear-gradient(to right, #91447B40, #91447B40), url("./assets/roommate.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  
+  height: 150px;
+ }
+
+
+ @keyframes reading {
+  0% {
+    color: lightblue;
+    transform: scaleY(0.8);
+  }
+  50% {
+    color: blue;
+    transform: scaleY(1.2);
+  }
+  100% {
+    color: lightblue;
+    transform: scaleY(0.8);
+  }
+}
+
+.animate-reading {
+  animation: reading 1s infinite;
+}
 
 
 @media(max-width:600px) {

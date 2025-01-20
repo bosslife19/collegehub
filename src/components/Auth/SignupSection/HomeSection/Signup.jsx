@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import img from "../../../../assets/slide1.png";
 import imgs from "../../../../assets/slide2.jpg";
  import { Link } from 'react-router-dom';
- 
+  
 import InfinteImage from '../InfiniteScroll';
 const Signup = () => {
   const sliderData = [

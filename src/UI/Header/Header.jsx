@@ -45,7 +45,7 @@ const Header = ({ sidebarOpen, setSidebarOpen }) => {
 
   return (
     <header className="sticky top-0 flex flex-col z-[51] bg-[#FDFDFD] shadow">
-      <div className="flex flex-grow items-center justify-between py-[12px] px-4 shadow-md md:px-6 2xl:px-11">
+      <div className="flex flex-grow items-center lg:justify-end justify-between py-[12px] px-4 shadow-md md:px-6 2xl:px-11">
         {/* Sidebar Toggle Button */}
         <div className="flex items-center gap-2 sm:gap-4 lg:hidden">
           <button
@@ -71,10 +71,10 @@ const Header = ({ sidebarOpen, setSidebarOpen }) => {
         </div>
 
         {/* Search Bar */}
-        <div className="hidden sm:block">
+        <div className="hidden sm:block px-[10px]">
           <Search
             id="search"
-            placeholder="Search"
+            placeholder="Search for anything..."
             name="search"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
@@ -84,42 +84,7 @@ const Header = ({ sidebarOpen, setSidebarOpen }) => {
 
         {/* Header Actions */}
         <div className="flex items-center gap-5">
-          {/* Language Selector */}
-          {/* <div className="relative hidden sm:block">
-            <button
-              className="flex items-center gap-2 text-gray-700 hover:text-gray-900"
-              onClick={() => toggleDropdown("language")}
-            >
-              <span
-                className={`fi ${
-                  languages.find((lang) => lang.code === selectedLanguage)
-                    ?.flagClass
-                }`}
-              ></span>
-              <span>
-                {
-                  languages.find((lang) => lang.code === selectedLanguage)
-                    ?.name
-                }
-              </span>
-            </button>
-
-            {dropdownOpen === "language" && (
-              <div className="absolute right-0 mt-2 w-48 bg-white border rounded shadow-md">
-                {languages.map((lang) => (
-                  <button
-                    key={lang.code}
-                    className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 w-full text-left"
-                    onClick={() => handleLanguageChange(lang.code)}
-                  >
-                    <span className={`fi ${lang.flagClass}`}></span>
-                    <span>{lang.name}</span>
-                  </button>
-                ))}
-              </div>
-            )}
-          </div> */}
-
+ 
           {/* Avatar Dropdown */}
           <div className="border-l-2 pl-4">
             <button onClick={() => toggleDropdown("avatar")}>

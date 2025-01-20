@@ -29,7 +29,7 @@ const AppLayout = () => {
 
 					{/* <!-- ===== Main Content Start ===== --> */}
 					<main>
-						<div className=" bg-[#F5F6FA]   p-4 md:p-6 2xl:p-10">
+						<div className=" bg-[#f3e1ed] h-full  p-4 md:p-6 2xl:p-10">
 							<Outlet />
 						</div>
 					</main>

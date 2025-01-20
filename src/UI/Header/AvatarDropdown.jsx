@@ -1,43 +1,46 @@
+/* eslint-disable no-unused-vars */
 import React, { useState,
    useEffect, useRef, useContext } from "react";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
-// import Avatars from "../../../assets/imglogo.png";
+import Avatars from "../../assets/profiles.png";
 // import { AuthContext } from "../../../context/AuthContext";
 
 const AvatarDropdown = ({ options }) => {
   const [isOpen, setIsOpen] = useState(false);
-  // const dropdownRef = useRef(null);
+  const dropdownRef = useRef(null);
 
   const toggleDropdown = () => setIsOpen((prev) => !prev);
 
-  // const closeDropdown = (event) => {
-  //   if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-  //     setIsOpen(false);
-  //   }
-  // };
+  const closeDropdown = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setIsOpen(false);
+    }
+  };
 
-//   useEffect(() => {
-//     document.addEventListener("mousedown", closeDropdown);
-//     return () => {
-//       document.removeEventListener("mousedown", closeDropdown);
-//     };
-//   }, []);
+  useEffect(() => {
+    document.addEventListener("mousedown", closeDropdown);
+    return () => {
+      document.removeEventListener("mousedown", closeDropdown);
+    };
+  }, []);
 // const {userDetails} = useContext(AuthContext);
   return (
     <div className="relative flex items-center gap-3 cursor-pointer" 
     // ref={dropdownRef}
     >
       <div className="cursor-pointer flex" onClick={toggleDropdown}>
-        {/* <img src={Avatars} alt="Avatar" className="object-cover w-10 h-10 rounded-full" /> */}
         <div className="flex-col flex px-2">
-          {/* <span>{userDetails?.name||'Admin'}</span> */}
-          <span>Admin</span>
+          <span>{
+          // userDetails?.name||
+          'Mako'}</span>
+          <span>U.P, India</span>
         </div>
+        <img src={Avatars} alt="Avatar" className="object-cover w-10 h-10 rounded-full" />
       </div>
 
-      <div onClick={toggleDropdown}>
+      {/* <div onClick={toggleDropdown}>
         {isOpen ? <FaChevronUp className="text-gray-500" /> : <FaChevronDown className="text-gray-500" />}
-      </div>
+      </div> */}
 
       {/* {isOpen && (
         <div className="absolute right-0 top-12 bg-white shadow-md rounded-md w-48 z-50">

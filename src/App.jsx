@@ -6,6 +6,8 @@ import PageTransition from './UI/Layout/PageTransition';
 import PageNotFound from './UI/PageNotFound';
 import AppLayout from './UI/Layout/AppLayout';
 import Homesection from './components/Dashboards/DashBoardHome/Homesection';
+import Rides from './components/Dashboards/Rides/RidesSection';
+import ChatPage from './components/Dashboards/Chats/ChatPage';
 // import AppLayout from './UI/Layout/AppLayout';
 
 
@@ -94,14 +96,14 @@ function App() {
                   }
                 />
 
-                {/* Inbox Management */}
-                {/* <Route path="/admin/inbox" element={<Customermangement />} /> */}
+                 {/* Rides */}
+                <Route path="/Rides" element={<Rides />} />
 
-                {/* Inbox Contents */}
-                {/* <Route
-                  path="/admin/inbox-contents"
-                  element={<InboxContents />}
-                /> */}
+                {/* ChatPage */}
+                <Route
+                  path="/Messages"
+                  element={<ChatPage />}
+                />
 
                 {/* Product Details */}
                 {/* <Route path="/admin/product/:id" element={<ProductDetails />} /> */}

@@ -1,15 +1,14 @@
 /* eslint-disable react/prop-types */
 import   { useState, useEffect, useMemo, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import {  BsMicrosoftTeams } from "react-icons/bs";
- import {  IoMdClose, IoMdSettings } from "react-icons/io";
+  import {  IoMdClose, IoMdSettings } from "react-icons/io";
  import { MdColorLens } from "react-icons/md";
  import { IoBedSharp } from "react-icons/io5";
 
 // import "../../../styles/Admin/overflow_hidden.css";
  import { BiSolidCopyAlt } from "react-icons/bi";
 import { FaUsers } from "react-icons/fa";
-import { FaHouseMedical,FaUsersLine  } from "react-icons/fa6";
+import { FaUsersLine  } from "react-icons/fa6";
  import Logo2 from "../../assets/Logo2";
 // import logo from "../../../assets/COMESOLOGO.png"
 const SideBarItem = ({ sidebarOpen, setSidebarOpen }) => {
@@ -63,16 +62,14 @@ const SideBarItem = ({ sidebarOpen, setSidebarOpen }) => {
     }
   }, [sidebarExpanded]);
 
-  const allItems = useMemo(
+  const allItems = useMemo( 
     () => [
-      { text: "Dashboard", link: "/admin/dashboard", icon: MdColorLens },
-      { text: "Inbox", link: "/admin/inbox", icon: FaUsersLine  },
-      { text: "Transactions", link: "/admin/transactions", icon: IoBedSharp },
-      { text: "Payout", link: "/admin/payout", icon: BiSolidCopyAlt },
-      { text: "Users", link: "/admin/users", icon: FaUsers },
-      { text: "Facilities", link: "/admin/facilities", icon: FaHouseMedical },
-      { text: "Team", link: "/admin/team", icon: BsMicrosoftTeams },
-      { text: "Settings", link: "/admin/settings", icon: IoMdSettings },
+      { text: "Dashboard", link: "/dashboard", icon: MdColorLens },
+      { text: "Community", link: "/Community", icon: FaUsersLine  },
+      { text: "Roommates", link: "/Roommates", icon: IoBedSharp },
+      { text: "Rides", link: "/Rides", icon: BiSolidCopyAlt },
+      { text: "Messages", link: "/Messages", icon: FaUsers },
+      { text: "Settings", link: "/settings", icon: IoMdSettings },
       // { text: "Logout", link: "Logout", icon: LuClock12 },
     ],
     []
@@ -188,14 +185,20 @@ const SideBarItem = ({ sidebarOpen, setSidebarOpen }) => {
                     history(item.link);
                     setSidebarOpen(false);
                   }}
-                  className="py-3  flex relative cursor-pointer rounded-md"
+                  className="py-2  flex relative cursor-pointer rounded-md"
                 >
                   <div
-                    className={`flex items-center justify-start w-full font-[600] leading-[19.1px] font-nunito text-[15px] gap-2 py-3 px-2 rounded-lg ${
+                    className={`flex items-center justify-start w-full font-[600] leading-[19.1px] font-nunito text-[15px] gap-2 py-4 px-2 rounded-lg ${
                       activeMainIndex === mainIndex
-                        ? "text-[#212047] bg-[#F0F6FF] transition-all"
+                        ? "text-[#212047] transition-all"
                         : "text-[#333333] hover:bg-gray hover:bg-opacity-10"
                     }`}
+                    style={{
+                      background: activeMainIndex === mainIndex 
+                        ? "linear-gradient(90deg, #D2E4FD 0%, #FFFFFF 85.37%)"
+                        : "transparent",
+                      borderLeft: activeMainIndex === mainIndex ? "3px solid blue" : "none", // Adds blue border for active item
+                    }}
                   >
                     <item.icon
                       color={
