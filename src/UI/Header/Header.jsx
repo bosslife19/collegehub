@@ -54,7 +54,7 @@ const Header = ({ sidebarOpen, setSidebarOpen }) => {
               e.stopPropagation();
               setSidebarOpen(!sidebarOpen);
             }}
-            className="block rounded-sm bg-white p-1.5 shadow-sm"
+            className="block rounded-full bg-white  shadow-sm"
           >
             <svg
               className="h-10 w-10 fill-current p-2 border rounded-full text-blue"

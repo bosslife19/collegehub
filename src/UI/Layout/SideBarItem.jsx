@@ -65,7 +65,7 @@ const SideBarItem = ({ sidebarOpen, setSidebarOpen }) => {
   const allItems = useMemo( 
     () => [
       { text: "Dashboard", link: "/dashboard", icon: MdColorLens },
-      { text: "Community", link: "/Community", icon: FaUsersLine  },
+      { text: "Community", link: "/CommunityGroupchat", icon: FaUsersLine  },
       { text: "Roommates", link: "/Roommates", icon: IoBedSharp },
       { text: "Rides", link: "/Rides", icon: BiSolidCopyAlt },
       { text: "Messages", link: "/Messages", icon: FaUsers },
@@ -141,7 +141,7 @@ const SideBarItem = ({ sidebarOpen, setSidebarOpen }) => {
   return (
     <>
       {sidebarOpen && (
-        <div className="z-[999] scroll-container fixed inset-0 transition-opacity">
+        <div  className="fixed inset-0 bg-black bg-opacity-50 z-[998]">
           <div
             className="absolute inset-0 bg-gray opacity-70"
             tabIndex={0}
@@ -154,10 +154,10 @@ const SideBarItem = ({ sidebarOpen, setSidebarOpen }) => {
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="flex items-center justify-between gap-2 px-[20px] py-[0px] lg:py-[20px]">
+        <div className="flex items-center justify-between gap-2 px-[20px] py-[10px] lg:py-[20px]">
           <Link to="dashboard"className="flex items-center gap-2" >
           <Logo2/>
-          <h3 className=" mb-[-30px] font-[700] text-[20px] leading-[30px] font-nunito ">College Hub</h3>
+          <h3 className="mb-[-15px] md:mb-[-30px] font-[700] md:text-[20px] md:leading-[30px] font-nunito ">College Hub</h3>
             {/* <img src={logo} />  */}
           </Link>
 
@@ -188,7 +188,7 @@ const SideBarItem = ({ sidebarOpen, setSidebarOpen }) => {
                   className="py-2  flex relative cursor-pointer rounded-md"
                 >
                   <div
-                    className={`flex items-center justify-start w-full font-[600] leading-[19.1px] font-nunito text-[15px] gap-2 py-4 px-2 rounded-lg ${
+                    className={`flex items-center justify-start w-full font-[600] leading-[19.1px] font-nunito text-[15px] gap-2 py-4 px-2 rounded-none md:rounded-lg ${
                       activeMainIndex === mainIndex
                         ? "text-[#212047] transition-all"
                         : "text-[#333333] hover:bg-gray hover:bg-opacity-10"

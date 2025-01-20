@@ -15,7 +15,7 @@ const truncateText = (text, wordLimit) => {
     : text;
 };
 
-const Rides = () => {
+const Roomates = () => {
      const sliderData = [
         {
           name: "Jane Doe, 22",
@@ -188,4 +188,4 @@ const Rides = () => {
   );
 };
 
-export default Rides;
+export default Roomates;

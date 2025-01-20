@@ -1,13 +1,12 @@
 /* eslint-disable react/prop-types */
-const Adds = ({ width = 40, height = 41, fillColor = "#91447B" }) => {
+const Adds = ({  fillColor = "#91447B" }) => {
     return (
       <svg
-        width={width}
-        height={height}
+        
         viewBox="0 0 40 41"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className=" cursor-pointer"
+        className=" cursor-pointer  w-[20px] md:w-[40px]"
       >
         <g clipPath="url(#clip0_82_710)">
           <path

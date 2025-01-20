@@ -169,8 +169,8 @@ const [activeTab, setActiveTab] = useState("all"); // Tabs: all, unread, favorit
 //   };
 
   return (
-    <div className="flex overflow-y-auto h-screen font-inter gap-[30px]">
-      <div className="w-full px-4 rounded-[20px] scroll-container  pb-[5%] overflow-y-auto fixed md:w-1/3 h-[500px] lg:w-1/4  bg-gray-100 border-r border-gray-300">
+<div className="md:flex justify-between  w-full xl:w-full  scroll-container  h-full md:h-screen font-inter gap-[30px] ">
+<div className=" px-4 rounded-[20px]    scroll-container overflow-y-auto h-[300px] md:h-[559px] w-full md:w-[400px] bg-gray-100 border-r border-gray-300">
      <div className="flex justify-between items-center  py-[20px]">
      <h2 className="text-[27px] font-semibold text-gray-800  ">
           Chats
@@ -210,7 +210,7 @@ const [activeTab, setActiveTab] = useState("all"); // Tabs: all, unread, favorit
             <li
               key={chat.id}
               onClick={() => handleSelectChat(chat)}
-              className={`cursor-pointer gap-3 px-3 items-center justify-between flex py-[22px] my-2 border rounded-[10px] ${
+              className={`cursor-pointer gap-3 px-3 items-center justify-between flex py-[8px] md:py-[22px] my-2 border rounded-[5px] md:rounded-[10px] ${
                 selectedChat?.id === chat.id ? "bg-[#212047] text-[#fff]" : "hover:bg-gray-200"
               } text-[13px] `}
             >
@@ -223,7 +223,7 @@ const [activeTab, setActiveTab] = useState("all"); // Tabs: all, unread, favorit
             </div>
               <div className="   top-1/2 transform -translate-y-1/2 flex items-center">
           {chat.hasNotification && (
-            <span className="w-[10px] h-[10px] text-[8px] pr-1 pl-1 pb-[12px] text-center   bg-red-500 rounded-full">
+            <span className="w-[10px] h-[10px] text-[5px] md:text-[7px] pr-1 pl-1 pb-[8px] md:pb-[12px] text-center   bg-red-500 rounded-full">
               {chat.number}
             </span>
           )}
@@ -236,8 +236,8 @@ const [activeTab, setActiveTab] = useState("all"); // Tabs: all, unread, favorit
       </ul>
     </div>
  
-
-      <div className="flex-1 flex flex-col fixed rounded-[20px] right-[30px] w-[700px] overflow-y-auto h-[500px]">
+    {/*    */}
+      <div className="flex-1 flex flex-col rounded-[20px]  py-[5%]  w-full h-[400px]   lg:w-[400px] xl:w-full md:h-[610px]">
         {selectedChat ? (
           <>
             {/* Chat Header */}
@@ -251,7 +251,7 @@ const [activeTab, setActiveTab] = useState("all"); // Tabs: all, unread, favorit
                   </span>
                 </div>
               </div>
-              <div className="flex space-x-8 text-[#808080] text-[20px] items-center ">
+              <div className="flex space-x-3 md:space-x-8 text-[#808080] text-[20px] items-center ">
               <button className=" "><FaPhoneAlt /></button>
                 <button className="text-gray-500 hover:text-blue-500"><FaVideo /></button>
                 <button className="text-gray-500 hover:text-blue-500"><HiOutlineDotsVertical /></button>
@@ -317,27 +317,27 @@ const [activeTab, setActiveTab] = useState("all"); // Tabs: all, unread, favorit
           className="text-gray-500 pr-2 rounded-lg"
           title="Attach File"
         >
-          <img  src={clip}  className="w-[18px] h-[18px] " />
+          <img  src={clip}  className="w-full md:w-[18px] md:h-[18px] " />
         </button>
         <input
           type="text"
           placeholder="Type a message"
           value={newMessage}
           onChange={(e) => setNewMessage(e.target.value)}
-          className="flex-1 border border-gray-300 rounded-[30px] px-3 text-[14px] py-2  outline-none"
+          className="md:flex-1 border border-gray-300 rounded-[10px] md:rounded-[30px] md:px-3 px-2 text-[12px] md:text-[14px] py-[5px] md:py-2  outline-none"
         />
          <button
-        className="text-gray-500 pl-2 rounded-lg"
+        className="text-gray-500 md:pl-2 rounded-lg"
         onClick={startRecording}
         title="Start Recording"
       >
-       <img src={mic} className="w-[20px] " />
+       <img src={mic} className="w-full md:w-[20px] " />
       </button>
         <button
           type="submit"
-          className="ml-2 bg-[#fff] px-1 py-1 rounded-lg  "
+          className="md:ml-2 bg-[#fff] md:px-1 md:py-1 rounded-lg  "
         >
-        <img src={send} className="w-[35px] " />
+        <img src={send} className="w-full md:w-[35px]  " />
         </button>
       </form>
       {/* <button

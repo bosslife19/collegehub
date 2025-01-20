@@ -6,8 +6,9 @@ import PageTransition from './UI/Layout/PageTransition';
 import PageNotFound from './UI/PageNotFound';
 import AppLayout from './UI/Layout/AppLayout';
 import Homesection from './components/Dashboards/DashBoardHome/Homesection';
-import Rides from './components/Dashboards/Rides/RidesSection';
-import ChatPage from './components/Dashboards/Chats/ChatPage';
+ import Roomates from './components/Dashboards/Roommates/Roomates';
+import Chats from './components/Dashboards/Chats/Chats';
+import GroupChatPage from './components/Dashboards/Community/Groupchat';
 // import AppLayout from './UI/Layout/AppLayout';
 
 
@@ -97,16 +98,16 @@ function App() {
                 />
 
                  {/* Rides */}
-                <Route path="/Rides" element={<Rides />} />
+                <Route path="/Roommates" element={<Roomates />} />
 
                 {/* ChatPage */}
                 <Route
                   path="/Messages"
-                  element={<ChatPage />}
+                  element={<Chats />}
                 />
 
-                {/* Product Details */}
-                {/* <Route path="/admin/product/:id" element={<ProductDetails />} /> */}
+                {/* GroupChatPage*/}
+                <Route path="/CommunityGroupchat" element={<GroupChatPage />} />
 
                 {/* Transactions */}
                 {/* <Route
