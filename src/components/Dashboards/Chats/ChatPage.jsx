@@ -169,7 +169,7 @@ const [activeTab, setActiveTab] = useState("all"); // Tabs: all, unread, favorit
 //   };
 
   return (
-<div className="md:flex justify-between  w-full xl:w-full  scroll-container  h-full md:h-screen font-inter gap-[30px] ">
+<div className="md:flex justify-between items-center  w-full xl:w-full  scroll-container  h-full md:h-screen font-inter gap-[30px] ">
 <div className=" px-4 rounded-[20px]    scroll-container overflow-y-auto h-[300px] md:h-[559px] w-full md:w-[400px] bg-gray-100 border-r border-gray-300">
      <div className="flex justify-between items-center  py-[20px]">
      <h2 className="text-[27px] font-semibold text-gray-800  ">
@@ -237,11 +237,11 @@ const [activeTab, setActiveTab] = useState("all"); // Tabs: all, unread, favorit
     </div>
  
     {/*    */}
-      <div className="flex-1 flex flex-col rounded-[20px]  py-[5%]  w-full h-[400px]   lg:w-[400px] xl:w-full md:h-[610px]">
+      <div className="flex-1 flex flex-col rounded-[20px]    w-full h-[400px] py-[5%] md:py-[0px]  lg:w-[400px] xl:w-full md:h-[550px]">
         {selectedChat ? (
           <>
             {/* Chat Header */}
-            <div className="border-b bg-[#fff]  border-gray-300 px-4 py-3 flex justify-between items-center">
+            <div className="border-b bg-[#fff] rounded-t-[20px]  border-gray-300 px-4 py-3 flex justify-between items-center">
               <div className="flex items-center">
                 <div className="w-10 h-10 rounded-full bg-gray-300 mr-3"></div>
                 <div>
@@ -262,9 +262,9 @@ const [activeTab, setActiveTab] = useState("all"); // Tabs: all, unread, favorit
               <div className="flex flex-col space-y-4 justify-end items-end">
               {messages[selectedChat.id]?.map((msg, index) =>
             msg.type === "audio" ? (
-    <div key={index} className="flex gap-2 flex-row-reverse items-center space-x-2 bg-[#f1f3f4] rounded-[20px] px-4 py-2 w-[100px] md:w-[300px]">
+    <div key={index} className="flex gap-2 flex-row-reverse items-center space-x-2 bg-[#f1f3f4] rounded-[20px] px-4 py-2  md:w-[300px]">
       <img src={record} alt="record" className="w-[18px] md:w-[35px] object-contain" />
-      <div className="flex-1 gap-2 flex-row-reverse flex items-center space-x-2">
+      <div className="flex-1 text-[12px] md:text-[14px] gap-2 flex-row-reverse flex items-center space-x-2">
         <button
           onClick={() => toggleAudioPlay(msg.data, index)}
           className="text-[#fff] rounded-[20px] bg-[#91447B] px-[10px] py-[10px] text-[12px]"
@@ -294,17 +294,19 @@ const [activeTab, setActiveTab] = useState("all"); // Tabs: all, unread, favorit
               </div>
             </div>
 
-            <div className=" t bg-[#fff] border-gray-300 p-4 flex items-center space-x-3">
+            <div className=" t bg-[#fff] border-gray-300 p-4 rounded-b-[20px] flex items-center space-x-3">
   {isRecording ? (
     <div className="flex items-center justify-between w-full">
       <div className="flex items-center space-x-2">
-        <div className="animate-pulse text-red-500">🎤</div>
-        <span className="text-red-500 font-semibold">
+        <div className="animate-pulse ">
+        <img src={mic} className="w-full md:w-[20px] " />
+          </div>
+        <span className="text-[#91447b] font-semibold">
           Recording... {formatTime(recordingTime)}
         </span>
       </div>
       <button
-        className="text-red-500 hover:text-red-600 p-2 rounded-lg"
+        className="text-[#91447b] p-2 rounded-lg"
         onClick={stopRecording}
       >
         Stop
