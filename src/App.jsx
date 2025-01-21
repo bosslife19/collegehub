@@ -9,6 +9,7 @@ import Homesection from './components/Dashboards/DashBoardHome/Homesection';
  import Roomates from './components/Dashboards/Roommates/Roomates';
 import Chats from './components/Dashboards/Chats/Chats';
 import GroupChatPage from './components/Dashboards/Community/Groupchat';
+import RideBookingPage from './components/Dashboards/Rides/RidesBookingPage';
 // import AppLayout from './UI/Layout/AppLayout';
 
 
@@ -110,10 +111,10 @@ function App() {
                 <Route path="/CommunityGroupchat" element={<GroupChatPage />} />
 
                 {/* Transactions */}
-                {/* <Route
-                  path="/admin/transactions"
-                  element={<TransactionPage />}
-                /> */}
+                <Route
+                  path="/Rides"
+                  element={<RideBookingPage/>}
+                />
 
                 {/* Payouts */}
                 {/* <Route path="/admin/payout" element={<PayoutPage />} /> */}
