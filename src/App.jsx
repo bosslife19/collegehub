@@ -12,6 +12,7 @@ import GroupChatPage from './components/Dashboards/Community/Groupchat';
 import RideBookingPage from './components/Dashboards/Rides/RidesBookingPage';
 import SettingsPage from './components/Dashboards/Settings/Settings';
 import Login from './components/Auth/Login&Signup/Login';
+import FindBoard from './components/Navs/FindRoommates/FindBoard';
 // import AppLayout from './UI/Layout/AppLayout';
 
 
@@ -38,7 +39,9 @@ function App() {
               />
               <Route path="/Signup" element={<Authpage />} />
 
-              {/* Starting Website Route */}
+              {/* Nav Links */}
+              
+              <Route path="/Find-a-Roommate" element={<FindBoard />} />
 {/*  
               <Route
                 path="/"

@@ -2,6 +2,7 @@ import insta from "../../../assets/instagram-logo-facebook-svgrepo-com.png";
 import fb from "../../../assets/facebook-rounded-svgrepo-com.png";
 import tik from "../../../assets/Tiktok.png";
 import youtube from "../../../assets/youtube-rounded-svgrepo-com.png";
+import LOGO from '../../../assets/LOGO';
 
 const sections = [
   {
@@ -32,7 +33,8 @@ const socialMediaIcons = [
 const Footer = () => {
   return (
     <div className="px-[20px] md:py-[10px]">
-      <div className="flex flex-wrap md:px-[5%] gap-[50px] py-[10px] mb-[10px]">
+      <div className="flex md:justify-between flex-wrap md:px-[5%] gap-[50px] py-[10px] mb-[10px]">
+      <LOGO />
         {sections.map((section, index) => (
           <div key={index} className="flex flex-col gap-[10px]">
             <h2 className="font-[700] text-[15px] md:text-[22px] leading-[30px] font-nunito">
