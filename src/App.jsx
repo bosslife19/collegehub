@@ -11,6 +11,7 @@ import Chats from './components/Dashboards/Chats/Chats';
 import GroupChatPage from './components/Dashboards/Community/Groupchat';
 import RideBookingPage from './components/Dashboards/Rides/RidesBookingPage';
 import SettingsPage from './components/Dashboards/Settings/Settings';
+import Login from './components/Auth/Login&Signup/Login';
 // import AppLayout from './UI/Layout/AppLayout';
 
 
@@ -31,7 +32,7 @@ function App() {
                 element={
                   <PageTransition>
                     {" "}
-                    <Authpage />{" "} 
+                    <Login />{" "} 
                   </PageTransition>
                 }
               />
@@ -82,12 +83,12 @@ function App() {
                 path="/"
                 element={
                   // <ProtectedRoute>
-                    <AppLayout />
+                    <Authpage />
                   // </ProtectedRoute>
                 }
               >
                 {/* Default Dashboard Route */}
-                <Route index element={<Homesection />} />
+                <Route index element={<Authpage />} />
 
                 {/* Dashboard Route */}
                 <Route

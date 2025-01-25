@@ -4,7 +4,9 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import img from "../../../../assets/slide1.png";
-import imgs from "../../../../assets/slide2.jpg";
+import imgs from "../../../../assets/pexels-olly-3764402 1.png";
+import img2 from "../../../../assets/pexels-keira-burton-6146978 1.png";
+
  import { Link } from 'react-router-dom';
   
 import InfinteImage from '../InfiniteScroll';
@@ -15,35 +17,32 @@ const Signup = () => {
       semiHeader: "Your Ultimate Campus Companion!",
       paragraph:
         "Step into College Hub, where connections begin, opportunities thrive, and campus life gets easier.",
-      image: img,
+      image: imgs,
       links: [
-        { text: "Roommate & Rides", url: "/roommate-rides" },
-        { text: "Community Forums", url: "/community-forums" },
-        { text: "Events Calendar", url: "/events-calendar" },
+        { text: "Get Started Now!", url: "/home" },
+        { text: "Event Calendar", url: "/community-forums" },
       ],
     },
     {
-      header: "Track Your Payments",
-      semiHeader: "Effortless Transactions",
+      header: "",
+      semiHeader: "Finding your perfect roommate made Easy",
       paragraph:
-      "Step into College Hub, where connections begin, opportunities thrive, and campus life gets easier.",
-    image: imgs,
+      "Click  now to connect with compatible roommates and create your ideal living space!",
+    image: img2,
       links: [
-        { text: "Roommate & Rides", url: "/roommate-rides" },
-        { text: "Community Forums", url: "/community-forums" },
-        { text: "Events Calendar", url: "/events-calendar" },
+        { text: "Find your perfect roommate now!", url: "/roommate-rides" },
+        
       ],
     },
     {
-      header: "Guaranteed Experience",
-      semiHeader: "Easy & Secure",
+      header: " ",
+      semiHeader: "Join our thriving communities today",
       paragraph:
-      "Step into College Hub, where connections begin, opportunities thrive, and campus life gets easier.",
+      "Connect, share, and grow with like-minded individuals. Start your journey with us today!",
     image: img,
       links: [
-        { text: "Roommate & Rides", url: "/roommate-rides" },
-        { text: "Community Forums", url: "/community-forums" },
-        { text: "Events Calendar", url: "/events-calendar" },
+        { text: "Community Forums", url: "/roommate-rides" },
+       
       ],
     },
   ];
@@ -152,7 +151,7 @@ const Signup = () => {
                   <li key={linkIndex}>
                     <Link
                       to={link.url}
-                      className="bg-[#F4E2EF] py-[10px] flex justify-center items-center w-full px-[20px] lg:px-[70px] font-[600] text-[10px] md:text-[18px] leading-[18px] text-[#3C3038] mx-auto rounded-[5px] md:w-[90px] lg:w-[50px] hover:underline"
+                      className="bg-[#F4E2EF] py-[15px] flex justify-center items-center px-[20px] lg:px-[20px] font-[600] text-[10px] md:text-[18px] leading-[18px] text-[#3C3038] mx-auto rounded-[5px] "
                     >
                       {link.text}
                     </Link>

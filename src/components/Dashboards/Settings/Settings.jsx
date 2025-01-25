@@ -37,7 +37,7 @@ const SettingsPage = () => {
 
   // Tabs configuration
   const tabs = [
-    { label: "Profile settings", icon: <FaUser />, component: <Profile /> },
+    { label: "Profile settings", icon: <FaUser />, component: <Profile setActiveTab={setActiveTab} /> },
     { label: "Account settings", icon: <IoSettingsOutline />, component: <Account /> },
     { label: "Notification", icon: <IoIosNotificationsOutline />, component: <Notification /> },
     { label: "Subscription", icon: <MdSubscriptions />, component: <Subscription /> },
@@ -52,15 +52,15 @@ const SettingsPage = () => {
   return (
     <div className="flex flex-col md:flex-row gap-4 p-4 min-h-screen">
       {/* Sidebar for Desktop View */}
-      <div className="hidden md:block md:w-1/4 bg-white rounded-lg p-4 shadow-lg h-[440px]">
+      <div className="hidden md:block md:w-1/4 bg-white rounded-lg p-4  h-full xl:h-[440px]">
         <h2 className="font-bold text-2xl mb-6 font-poppins">Settings</h2>
         <div className="space-y-4">
           {tabs.map((tab) => (
             <button
               key={tab.label}
-              className={`font-semibold flex items-center gap-3 text-sm px-4 py-3 rounded-lg w-full ${
+              className={`font-semibold flex items-center gap-3   text-start text-[10px] lg:text-sm px-4 py-3 rounded-lg w-full ${
                 activeTab === tab.label
-                  ? "bg-purple-100 text-purple-800 border-r-4 border-purple-600"
+                  ? "bg-purple-100 text-[#212121] border-r-4 border-[#000]"
                   : "text-gray-700 hover:bg-gray-100"
               }`}
               onClick={() => setActiveTab(tab.label)}
@@ -73,10 +73,10 @@ const SettingsPage = () => {
       </div>
 
       {/* Tab Panels for Mobile and Desktop */}
-      <div className="md:w-3/4 bg-white rounded-lg p-4 shadow-lg flex-1">
+      <div className="md:w-3/4 bg-[#fff]  rounded-lg p-4  flex-1">
         {activeTab === null ? (
           // Main Settings List for Mobile
-          <div className="block md:hidden">
+          <div className="block md:hidden ">
             <h2 className="font-bold text-2xl mb-6 font-poppins">Settings</h2>
             <div className="space-y-4">
               {tabs.map((tab) => (

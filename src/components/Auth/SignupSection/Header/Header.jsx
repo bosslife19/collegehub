@@ -1,10 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { LuArrowDownToLine, LuArrowUpToLine } from 'react-icons/lu';
-import { BiSolidDownArrow, BiSolidUpArrow } from 'react-icons/bi';
-import LOGO from '../../../../assets/LOGO';
-import profile from '../../../../assets/profile-circle.png';
-
+ import LOGO from '../../../../assets/LOGO';
+ 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -20,32 +17,34 @@ const Header = () => {
 
   const HeadNav = [
     {
-      title: "Social",
-      links: [
-        { title: "Social", link: "/social" },
-        { title: "Socials", link: "/socials" },
-      ],
+      title: "About us",
+      link:"/about-us"
+      // links: [
+      //   { title: "Social", link: "/social" },
+      //   { title: "Socials", link: "/socials" },
+      // ],
     },
     {
-      title: "Roommate & Rides",
-      links: [
-        { title: "Roommates", link: "/roommates" },
-        { title: "Rides", link: "/rides" },
-      ],
+      title: "Find a Roommate",
+       link:"/Roomate"
+      // links: [
+      //   { title: "Roommates", link: "/roommates" },
+      //   { title: "Rides", link: "/rides" },
+      // ],
     },
     {
-      title: "Resources",
-      links: [
-        { title: "Resources", link: "/resources" },
-        { title: "Guides", link: "/guides" },
-      ],
+      title: "Rides",
+      // links: [
+      //   { title: "Resources", link: "/resources" },
+      //   { title: "Guides", link: "/guides" },
+      // ],
     },
     {
-      title: "Events & Local Services",
-      links: [
-        { title: "Events", link: "/events" },
-        { title: "Services", link: "/services" },
-      ],
+      title: "Services",
+      // links: [
+      //   { title: "Events", link: "/events" },
+      //   { title: "Services", link: "/services" },
+      // ],
     },
   ];
 
@@ -62,15 +61,18 @@ const Header = () => {
     };
   }, []);
 
+ 
   return (
     <header
       className={`bg-white anaheim-font z-[1000] pb-3 pt-2 lg:pt-4 px-[15px] block md:flex-row flex-col md:flex items-center border-b border-[#EAECF0] transition-all duration-300 ${isSticky ? 'fixed top-0 w-full  ' : 'relative'}`}
     >
-      <div className=" ">
+      <div className="">
         {/* Logo */}
-           <Link to="/">
+         <div className=' cursor-none w-[30px] md:w-[100px]'>
+         <Link to="/" >
             <LOGO />
           </Link>
+         </div>
  
         {/* Hamburger Menu Button */}
         <button
@@ -109,7 +111,7 @@ const Header = () => {
           isMenuOpen ? 'translate-x-0' : '-translate-x-full'
         } md:hidden fixed inset-0 bg-white z-20 w-1/2 transition-transform duration-300`}
       >
-        <div className="text-xl font-bold px-[20px] mt-[20px] border-b pb-[20px] border-[#EAECF0]">
+        <div className="text-xl   font-bold px-[20px] mt-[20px] border-b pb-[20px] border-[#EAECF0]">
           <Link to="/">
             <LOGO />
           </Link>
@@ -117,21 +119,22 @@ const Header = () => {
         <ul className="flex flex-col items-center pt-[10px]">
           {HeadNav.map((item, index) => (
             <li key={index} className="relative group w-full">
-              <button
-                onClick={() => toggleDropdown(index)}
-                className="flex text-[14px]  font-[500] font-nunito items-center py-2 px-4 w-full text-left focus:outline-none"
+              <Link 
+              to={item.link}
+                // onClick={() => toggleDropdown(index)}
+                className="flex text-[14px] text-[#91447B]  font-[500] font-nunito items-center py-2 px-4 w-full text-left focus:outline-none"
               >
                 {item.title}
-                <span className="ml-1 text-sm transition-transform duration-300">
+                {/* <span className="ml-1 text-sm transition-transform duration-300">
                   {activeDropdown === index ? (
                     <LuArrowUpToLine />
                   ) : (
                     <LuArrowDownToLine />
                   )}
-                </span>
-              </button>
+                </span> */}
+              </Link>
               {/* Dropdown Menu */}
-              <ul
+              {/* <ul
                 className={`${
                   activeDropdown === index ? 'block' : 'hidden'
                 } bg-white px-[20px] border rounded-b-[20px] border-[#EAECF0] rounded mt-2  transition-all duration-300`}
@@ -146,7 +149,7 @@ const Header = () => {
                     </Link>
                   </li>
                 ))}
-              </ul>
+              </ul> */}
             </li>
           ))}
         </ul>
@@ -156,22 +159,22 @@ const Header = () => {
       <nav className="hidden md:flex w-full justify-between md:items-center px-[20px]">
         <ul className="flex space-x-4 w-full justify-center">
           {HeadNav.map((item, index) => (
-            <li key={index} className="relative group">
+            <li key={index} className="relative group text-[#91447B]">
               <button
                 onClick={() => toggleDropdown(index)}
                 className="flex  items-center py-2 px-[10px] lg:px-4 gap-2 w-full text-left md:text-center focus:outline-none text-[15px] lg:text-[20px] leading-[30.94px]"
               >
                 {item.title}
-                <span className="ml-1 text-[12px]">
+                {/* <span className="ml-1 text-[12px]">
                   {activeDropdown === index ? (
                     <BiSolidUpArrow />
                   ) : (
                     <BiSolidDownArrow />
                   )}
-                </span>
+                </span> */}
               </button>
               {/* Dropdown Menu */}
-              <ul
+              {/* <ul
                 className={`${
                   activeDropdown === index ? 'block' : 'hidden'
                 } absolute  bg-white border  border-[#EAECF0] rounded mt-2 w-full transition-all duration-300`}
@@ -186,11 +189,19 @@ const Header = () => {
                     </Link>
                   </li>
                 ))}
-              </ul>
+              </ul> */}
             </li>
           ))}
         </ul>
-        <img src={profile} className="w-[30px] h-[30px]" />
+        <div className='w-[200px] flex gap-[20px] justify-end items-end'>
+        <Link to="#" className=' py-[10px] font-[600] text-[#91447B]'>
+          Contact Us
+        </Link>
+        <Link to="/login" className=' py-[10px] px-[15px] font-[600] text-[#fff] rounded-[10px] bg-[#91447B]'>
+          Sign Up
+        </Link>
+        </div>
+        {/* <img src={profile} className="w-[30px] h-[30px]" /> */}
       </nav>
     </header>
   );
