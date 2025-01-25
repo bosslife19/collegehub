@@ -53,8 +53,8 @@ const Profile = () => {
     },
   ]
   return (
-    <div className="bg-[#fff] h-screen rounded-[25px] px-[30px] outline-none   ">
-    <div className="   pb-[50px] pt-[50px]">
+    <div className="bg-[#fff]  rounded-[25px] px-[30px] outline-none   ">
+    <div className=" overflow-y-auto h-[600px] scroll-smooth  scroll-container pb-[80px] pt-[20px]">
       <div className="flex items-center gap-[30px]">
       <div className=" relative w-[130px]">
         <img src={profile} className=" " />
