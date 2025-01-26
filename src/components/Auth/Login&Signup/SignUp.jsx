@@ -271,7 +271,7 @@ const SignUp = ({ toggleForm }) => {
               </button>
               <span className="font-nunito font-[500] text-[11px] md:text-[17px] leading-[27px]">
                 Already have an account?{" "}
-                <Link to="#" onClick={toggleForm} className="text-[#91447B] font-[600]">
+                <Link to="/login" onClick={toggleForm} className="text-[#91447B] font-[600]">
                   Log in
                 </Link>
               </span>

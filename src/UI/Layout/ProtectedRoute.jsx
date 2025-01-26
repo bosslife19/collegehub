@@ -18,7 +18,7 @@ function ProtectedRoute({ children }) {
     }
     const isAdmin = localStorage.getItem('isAdmin');
   if(isAdmin){
-    return navigate('/dashboard')
+    return navigate('/Homescreen')
   }
   }, []);
 

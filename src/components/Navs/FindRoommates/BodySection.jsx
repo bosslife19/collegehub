@@ -40,7 +40,8 @@ const BodySection = () => {
       padding: "0",
       fontSize: "14px",
       color: "#212121",
-      fontWeight: "bold"
+      fontWeight: "500",
+      fontFamily: "inter"
     }),
     dropdownIndicator: (provided) => ({
       ...provided,
@@ -66,34 +67,34 @@ const BodySection = () => {
       <h3 className="text-[#fff] font-[500] mb-3 md:mb-0 text-[30px] leading-[30px] md:leading-[48px] lg:text-[48px] text-center font-inter lg:px-[200px]">
         Finding your perfect roommate made Easy
       </h3>
-      <div className=" grid grid-cols-2 md:gap-0  gap-[30px] md:grid-cols-5 md:p-4 md:rounded-none rounded-[50px]  items-center">
+      <div className=" space-y-3 md:space-y-0 md:grid grid-cols-2 md:gap-0 items-center justify-center  gap-[30px] md:grid-cols-5 md:p-4 md:rounded-none rounded-[50px]  ">
         {/* Age Range Dropdown */}
-        <div className="bg-white p-[10px] md:p-[30px] border-r rounded-l-[10px] md:rounded-l-[100px]">
-          <label className="block text-[#91447B] font-[600] text-[10px] md:text-[17px] font-inter mb-2">Age Range</label>
+        <div className="bg-white p-[10px] md:p-[30px] border-r md:rounded-none rounded-[10px]   md:rounded-l-[100px]">
+          <label className="block text-[#91447B] font-[600] text-[13px] md:text-[17px] font-inter md:mb-2">Age Range</label>
           <Select options={ageOptions} placeholder="age " styles={customStyles} />
         </div>
 
         {/* Sex Dropdown */}
         <div className="bg-white p-[5px] md:p-[30px] border-r md:rounded-none rounded-[10px]">
-          <label className="block text-[#91447B] font-[600] text-[10px] md:text-[17px] font-inter mb-2">Sex</label>
+          <label className="block text-[#91447B] font-[600] text-[13px] md:text-[17px] font-inter md:mb-2">Sex</label>
           <Select options={sexOptions} placeholder="Select Sex" styles={customStyles} />
         </div>
 
         {/* Race Dropdown */}
         <div className="bg-white p-[5px] md:p-[30px] border-r md:rounded-none rounded-[10px]">
-          <label className="block text-[#91447B] font-[600] text-[10px] md:text-[17px] font-inter mb-2">Race</label>
+          <label className="block text-[#91447B] font-[600] text-[13px] md:text-[17px] font-inter md:mb-2">Race</label>
           <Select options={raceOptions} placeholder="Select Race" styles={customStyles} />
         </div>
 
         {/* Pet Dropdown */}
         <div className="bg-white p-[5px] md:p-[30px] border-r md:rounded-none rounded-[10px]">
-          <label className="block text-[#91447B] font-[600] text-[10px] md:text-[17px] font-inter mb-2">Pet</label>
+          <label className="block text-[#91447B] font-[600] text-[13px] md:text-[17px] font-inter md:mb-2">Pet</label>
           <Select options={petOptions} placeholder="Select Pet" styles={customStyles} />
         </div>
 
         {/* Search Button */}
         <div className="bg-[#91447B]  md:rounded-r-[100px] rounded-r-[5px] p-[8px] md:p-[46px] flex items-center justify-center">
-          <button className="text-white flex items-center gap-[10px] text-[12px] md:text-[16px] font-[500] px-6 py-2 rounded focus:outline-none">
+          <button className="text-white flex items-center gap-[10px] text-[14px] md:text-[16px] font-[500] px-6 py-2 rounded focus:outline-none">
            <IoSearchOutline/>
             Search
           </button>
