@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
-const WelcomeLottie = ({ onComplete }) => {
+const Loader = ({ onComplete }) => {
   useEffect(() => {
     // Set timeout for 3 seconds to simulate loading
     const timer = setTimeout(() => {
@@ -15,7 +15,7 @@ const WelcomeLottie = ({ onComplete }) => {
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "100vh" }}>
       {/* Lottie Player */}
       <DotLottieReact
-      src="https://lottie.host/e3020020-de0b-4da3-8cb5-447b55aba8fd/FivSExQjmh.lottie"
+      src="https://lottie.host/7a71d7fa-b1a3-49c2-b932-b41f63acda04/cdKQ4oe1yz.lottie"
       loop
       autoplay
     />
@@ -23,6 +23,7 @@ const WelcomeLottie = ({ onComplete }) => {
   );
 };
 
-export default WelcomeLottie;
+export default Loader;
  
+
  

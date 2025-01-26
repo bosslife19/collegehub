@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Authpage from './components/Auth/SignupSection/Authpage';
+// import Authpage from './components/Auth/SignupSection/Homepage';
 import WelcomeLottie from './alert/welcomLoading/welcomLoading';
 import PageTransition from './UI/Layout/PageTransition';
 import PageNotFound from './UI/PageNotFound';
@@ -13,6 +13,9 @@ import RideBookingPage from './components/Dashboards/Rides/RidesBookingPage';
 import SettingsPage from './components/Dashboards/Settings/Settings';
 import Login from './components/Auth/Login&Signup/Login';
 import FindBoard from './components/Navs/FindRoommates/FindBoard';
+import ProtectedRoute from './UI/Layout/ProtectedRoute';
+import SignUp from './components/Auth/Login&Signup/SignUp';
+import Homepage from './components/Auth/SignupSection/Homepage';
 // import AppLayout from './UI/Layout/AppLayout';
 
 
@@ -37,61 +40,28 @@ function App() {
                   </PageTransition>
                 }
               />
-              <Route path="/Signup" element={<Authpage />} />
+              <Route path="/Signup" element={<SignUp />} />
 
-              {/* Nav Links */}
-              
+              {/* Homescreen */}
+              <Route path="/Homescreen" element={<Homepage />} />
+             
+              {/* Find a roommate */}
               <Route path="/Find-a-Roommate" element={<FindBoard />} />
-{/*  
-              <Route
-                path="/"
-                element={
-                  <ProtectedRoute>
-                    <AppLayouts />
-                  </ProtectedRoute>
-                }
-              >
-                <Route
-                  path="/dashboard"
-                  element={
-                    <ProtectedRoute>
-                      <PageTransitionin>
-                        <Dashboard />
-                      </PageTransitionin>
-                    </ProtectedRoute>
-                  }
-                />
-
-                <Route index element={<Dashboard />} />
-                <Route path="inbox-contents" element={<InboxContent />} />
-
-                <Route path="/payoutDetails" element={<PayoutDetail />} />
-
-                <Route path="/Payments" element={<Payments />} />
-
-                <Route path="payout" element={<PayoutPag />} />
-
-                <Route path="transactions" element={<TransactionPag />} />
-
-                <Route path="settings" element={<SettingsManagemen />} />
-              </Route> */}
-
-              {/* End of website Route */}
-
-              {/* start Admin Route */}
+              
+              
 
               {/* Admin Routes */}
 
               <Route
                 path="/"
                 element={
-                  // <ProtectedRoute>
-                    <Authpage />
-                  // </ProtectedRoute>
+                  <ProtectedRoute>
+                    <AppLayout />
+                  </ProtectedRoute>
                 }
               >
                 {/* Default Dashboard Route */}
-                <Route index element={<Authpage />} />
+                <Route index element={<Homesection />} />
 
                 {/* Dashboard Route */}
                 <Route
@@ -103,7 +73,7 @@ function App() {
                   }
                 />
 
-                 {/* Rides */}
+                 {/* Roommates */}
                 <Route path="/Roommates" element={<Roomates />} />
 
                 {/* ChatPage */}
@@ -115,7 +85,7 @@ function App() {
                 {/* GroupChatPage*/}
                 <Route path="/CommunityGroupchat" element={<GroupChatPage />} />
 
-                {/* Transactions */}
+                {/* Rides */}
                 <Route
                   path="/Rides"
                   element={<RideBookingPage/>}
@@ -124,36 +94,6 @@ function App() {
                 {/* SettingsPage */}
                 <Route path="/settings" element={<SettingsPage />} />
 
-                {/* Payout Details */}
-                {/* <Route path="/admin/pays" element={<PayoutDetails />} /> */}
-
-                {/* Settings */}
-                {/* <Route
-                  path="/admin/settings"
-                  element={<SettingsManagement />}
-                /> */}
-
-                {/* User Management */}
-                {/* <Route path="/admin/users" element={<UserManagement />} /> */}
-
-                {/* User Details */}
-                {/* <Route path="/admin/userBoard" element={<UserDetailsPage />} /> */}
-
-                {/* Facilities */}
-                {/* <Route path="/admin/facilities" element={<Facilities />} /> */}
-                {/* Receive */}
-  
-                {/* Health Facility */}
-                {/* <Route
-                  path="/admin/healthFacility"
-                  element={<HealthDetailsPage />}
-                /> */}
-
-                {/* Teams Management */}
-                {/* <Route path="/admin/team" element={<Teamsmanagement />} /> */}
-
-                {/* Team Details */}
-                {/* <Route path="/admin/teamUser" element={<TeamsDetails />} /> */}
               </Route>
 
               {/* Fallback Route */}

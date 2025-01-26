@@ -6,6 +6,8 @@ import ArrowRight from "../../../assets/right.png";
 import ArrowLeft from "../../../assets/left.png";
 import profile from "../../../assets/imgprf.png";
 import { Link } from "react-router-dom";
+import Loader from "../../../alert/welcomLoading/loader";
+import { useState } from "react";
 
 // Helper function to truncate text
 const truncateText = (text, wordLimit) => {
@@ -125,7 +127,13 @@ const Roomates = () => {
         ),
       };
     
+      const [isLoading, setIsLoading] = useState(true);
+  
   return (
+    <>
+    {isLoading ? (
+       <Loader onComplete={() => setIsLoading(false)} />
+     ) : (
     <div className="anaheim-font">
       <div className="bgimgs flex flex-col justify-center items-center anaheim-font">
         <h2 className="font-[600] text-[28px] md:text-start text-center md:text-[50px] leading-[31px] md:leading-[77.34px] text-[#FFFFFF]">
@@ -185,6 +193,8 @@ const Roomates = () => {
   </Slider>
 </div>       
     </div>
+     )}
+     </>
   );
 };
 

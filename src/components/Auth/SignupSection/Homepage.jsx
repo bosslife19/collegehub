@@ -1,11 +1,11 @@
  import Header from './Header/Header'
 import Signup from './HomeSection/Signup'
 import Footer from './Footer'
-import Signing from './HomeSection/Signing'
+// import Signing from './HomeSection/Signing'
 import Sub from './HomeSection/subscription'
 import TestimonialSlider from './Testimonials'
 
-const Authpage = () => {
+const Homepage = () => {
   return (
     <>
      <Header/>
@@ -19,4 +19,4 @@ const Authpage = () => {
   )
 }
 
-export default Authpage
+export default Homepage

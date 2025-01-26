@@ -4,16 +4,16 @@ import { Link } from 'react-router-dom';
  
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState(null);
+  // const [activeDropdown, setActiveDropdown] = useState(null);
   const [isSticky, setIsSticky] = useState(false); // State for sticky behavior
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const toggleDropdown = (index) => {
-    setActiveDropdown(activeDropdown === index ? null : index);
-  };
+  // const toggleDropdown = (index) => {
+  //   setActiveDropdown(activeDropdown === index ? null : index);
+  // };
 
   const HeadNav = [
     {
@@ -160,8 +160,9 @@ const Header = () => {
         <ul className="flex space-x-4 w-full justify-center">
           {HeadNav.map((item, index) => (
             <li key={index} className="relative group text-[#91447B]">
-              <button
-                onClick={() => toggleDropdown(index)}
+              <Link
+               to={item.link}
+                // onClick={() => toggleDropdown(index)}
                 className="flex  items-center py-2 px-[10px] lg:px-4 gap-2 w-full text-left md:text-center focus:outline-none text-[15px] lg:text-[20px] leading-[30.94px]"
               >
                 {item.title}
@@ -172,7 +173,7 @@ const Header = () => {
                     <BiSolidDownArrow />
                   )}
                 </span> */}
-              </button>
+              </Link>
               {/* Dropdown Menu */}
               {/* <ul
                 className={`${

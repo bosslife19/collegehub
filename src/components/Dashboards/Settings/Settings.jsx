@@ -10,6 +10,7 @@ import { IoIosNotificationsOutline } from "react-icons/io";
 import { MdLogout, MdSubscriptions } from "react-icons/md";
 import { LiaClipboardListSolid } from "react-icons/lia";
 import { IoSettingsOutline } from "react-icons/io5";
+import Loader from "../../../alert/welcomLoading/loader";
 
 const SettingsPage = () => {
   // State to track active tab
@@ -48,8 +49,13 @@ const SettingsPage = () => {
   const handleBack = () => {
     setActiveTab(null); // Reset active tab to null for mobile view
   };
-
+  const [isLoading, setIsLoading] = useState(true);
+  
   return (
+    <>
+    {isLoading ? (
+       <Loader onComplete={() => setIsLoading(false)} />
+     ) : (
     <div className="flex flex-col md:flex-row gap-4 p-4 min-h-screen">
       {/* Sidebar for Desktop View */}
       <div className="hidden md:block md:w-1/4 bg-white rounded-lg p-4  h-full xl:h-[440px]">
@@ -107,6 +113,8 @@ const SettingsPage = () => {
         )}
       </div>
     </div>
+     )}
+     </>
   );
 };
 

@@ -2,6 +2,8 @@ import { BiSolidDownArrow } from "react-icons/bi";
 import web from '../../../assets/web.png';
 import huginImage from '../../../assets/hugin.jpg';
 import help from '../../../assets/help.png';
+ import { useState } from "react";
+import Loader from "../../../alert/welcomLoading/loader";
 
 const groups = [
   {
@@ -47,7 +49,13 @@ const groups = [
 ];
 
 const Homesection = () => {
+    const [isLoading, setIsLoading] = useState(true);
+  
   return (
+    <>
+     {isLoading ? (
+        <Loader onComplete={() => setIsLoading(false)} />
+      ) : (
     <div className="anaheim-font">
       <div className="bgimg flex flex-col justify-center items-center anaheim-font">
         <h2 className="font-[600] text-[30px] md:text-[60px] md:leading-[77.34px] text-[#FFFFFF]">
@@ -127,6 +135,8 @@ const Homesection = () => {
         ))}
       </div>
     </div>
+       )}
+    </>
   );
 };
 

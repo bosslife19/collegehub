@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { CiCirclePlus, CiSearch } from "react-icons/ci";
+import { CiCirclePlus } from "react-icons/ci";
 import record from "../../../assets/profiles.png";
 import { HiDotsVertical } from "react-icons/hi";
 import { GoPencil } from "react-icons/go";
 import { IoMdCheckmark, IoMdClose } from "react-icons/io";
+import Loader from "../../../alert/welcomLoading/loader";
 
 const GroupChatPage = () => {
   const [groups] = useState([
@@ -32,7 +33,8 @@ const GroupChatPage = () => {
   const [isGroupInfoModalVisible, setIsGroupInfoModalVisible] = useState(false);
   const [isEditingDescription, setIsEditingDescription] = useState(false);
   const [editedDescription, setEditedDescription] = useState(selectedGroup.description);
-  
+  const [isLoading, setIsLoading] = useState(true);
+
   const toggleEditDescription = () => {
     setIsEditingDescription(true);
   };
@@ -76,6 +78,10 @@ const GroupChatPage = () => {
   };
 
   return (
+    <>
+    {isLoading ? (
+       <Loader onComplete={() => setIsLoading(false)} />
+     ) : (
     <div className="md:flex h-screen">
       {/* Sidebar */}
       <div className="w-full md:w-1/4 h-[300px] lg:h-[500px] xl:h-full overflow-y-auto bg-[#91447B] text-[#fff] border-r p-4 rounded-t mb-[20px] xl:mb-[0px] md:rounded-l-[10px]">
@@ -251,6 +257,8 @@ const GroupChatPage = () => {
 )}
 
     </div>
+  )}
+     </>
   );
 };
 
