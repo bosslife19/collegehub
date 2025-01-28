@@ -246,11 +246,11 @@ const SignUp = ({ toggleForm }) => {
               <label htmlFor="custom-checkbox" className="custom-checkbox-label"></label>
               <span className="ml-[10px] flex items-center gap-[3px] font-nunito font-[500] text-[10px] md:text-[17px] leading-[27px]">
                 I agree to the
-                 <Link to="#" className=" underline text-[#91447B] font-[600]">
+                 <Link to="/terms-of-service" className=" underline text-[#91447B] font-[600]">
                 Terms of Service
                 </Link> 
                 and
-                <Link to="#" className=" underline text-[#91447B] font-[600]">Privacy Notice
+                <Link to="/privacy-notice" className=" underline text-[#91447B] font-[600]">Privacy Notice
                 </Link>
               </span>
             </div>
@@ -271,7 +271,9 @@ const SignUp = ({ toggleForm }) => {
               </button>
               <span className="font-nunito font-[500] text-[11px] md:text-[17px] leading-[27px]">
                 Already have an account?{" "}
-                <Link to="/login" onClick={toggleForm} className="text-[#91447B] font-[600]">
+                <Link to="/login" 
+                // onClick={toggleForm}
+                 className="text-[#91447B] font-[600]">
                   Log in
                 </Link>
               </span>

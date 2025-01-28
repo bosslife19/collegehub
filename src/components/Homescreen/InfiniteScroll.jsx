@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
 import { Slider } from "react-infinite-slider-carousel";
 // import 'react-infinite-slider-carousel/dist/index.css';
-import Nyu from "../../../assets/slide/Rectangle 70.png";
-import Nyu2 from "../../../assets/slide/Rectangle 63.png";
-import Nyu3 from "../../../assets/slide/Rectangle 64.png";
-import Nyu4 from "../../../assets/slide/Rectangle 57.png";
-import Nyu5 from "../../../assets/slide/Rectangle 65.png";
-import Nyu6 from "../../../assets/slide/Rectangle 59.png";
-import Nyu7 from "../../../assets/slide/Rectangle 66.png";
-import Nyu8 from "../../../assets/slide/Rectangle 67.png";
-import Nyu9 from "../../../assets/slide/Rectangle 68.png";
-import Nyu10 from "../../../assets/slide/Rectangle 61.png";
+import Nyu from "../../assets/slide/Rectangle 70.png";
+import Nyu2 from "../../assets/slide/Rectangle 63.png";
+import Nyu3 from "../../assets/slide/Rectangle 64.png";
+import Nyu4 from "../../assets/slide/Rectangle 57.png";
+import Nyu5 from "../../assets/slide/Rectangle 65.png";
+import Nyu6 from "../../assets/slide/Rectangle 59.png";
+import Nyu7 from "../../assets/slide/Rectangle 66.png";
+import Nyu8 from "../../assets/slide/Rectangle 67.png";
+import Nyu9 from "../../assets/slide/Rectangle 68.png";
+import Nyu10 from "../../assets/slide/Rectangle 61.png";
 
 const InfiniteImage = () => {
   // Images Array

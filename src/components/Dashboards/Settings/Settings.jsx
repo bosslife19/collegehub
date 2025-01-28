@@ -2,14 +2,16 @@ import { useState, useEffect } from "react";
 import Profile from "./subsections/Profile";
 import Account from "./subsections/Account";
 import Notification from "./subsections/Notification";
-import Subscription from "./subsections/Subscription";
+// import Subscription from "./subsections/Subscription";
 import TermsConditions from "./subsections/TermsConditions";
 import LogOut from "./subsections/LogOut";
 import { FaUser } from "react-icons/fa";
 import { IoIosNotificationsOutline } from "react-icons/io";
-import { MdLogout, MdSubscriptions } from "react-icons/md";
+import { MdLogout,
+  //  MdSubscriptions 
+  } from "react-icons/md";
 import { LiaClipboardListSolid } from "react-icons/lia";
-import { IoSettingsOutline } from "react-icons/io5";
+import { IoReturnUpBackSharp, IoSettingsOutline } from "react-icons/io5";
 import Loader from "../../../alert/welcomLoading/loader";
 
 const SettingsPage = () => {
@@ -41,7 +43,7 @@ const SettingsPage = () => {
     { label: "Profile settings", icon: <FaUser />, component: <Profile setActiveTab={setActiveTab} /> },
     { label: "Account settings", icon: <IoSettingsOutline />, component: <Account /> },
     { label: "Notification", icon: <IoIosNotificationsOutline />, component: <Notification /> },
-    { label: "Subscription", icon: <MdSubscriptions />, component: <Subscription /> },
+    // { label: "Subscription", icon: <MdSubscriptions />, component: <Subscription /> },
     { label: "Terms & Conditions", icon: <LiaClipboardListSolid />, component: <TermsConditions /> },
     { label: "Logout", icon: <MdLogout />, component: <LogOut /> },
   ];
@@ -102,10 +104,10 @@ const SettingsPage = () => {
           <div>
             {activeTab !== "Profile settings" && (
               <button
-                className="md:hidden font-semibold text-sm px-4 py-2 mb-4 bg-purple-100 text-purple-800 rounded-lg"
+                className="md:hidden font-semibold text-sm md:px-4 py-2 md:mb-4   text-purple-800 "
                 onClick={handleBack}
               >
-                Back
+                <IoReturnUpBackSharp/>
               </button>
             )}
             <div>{tabs.find((tab) => tab.label === activeTab)?.component}</div>

@@ -10,6 +10,7 @@ import "react-phone-number-input/style.css";
 import Select from "react-select";
 import Flag from "react-world-flags";
 import GoodGreen from "../../../../assets/goodGreen"
+import { IoReturnUpBackSharp } from "react-icons/io5"
 const Profile = ({setActiveTab}) => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [selectedCountry, setSelectedCountry] = useState(null);
@@ -59,12 +60,10 @@ const Profile = ({setActiveTab}) => {
   return (
     <div className="bg-[#fff]  rounded-[25px] px-[10px] xl:px-[30px] outline-none   ">
     <div className=" overflow-y-auto xl:h-[600px] scroll-smooth  scroll-container xl:pb-[80px] md:pt-[20px]">
-    <button
-     className="md:hidden font-semibold text-[12px] md:text-sm md:px-4 py-1 px-2 md:py-2 md:mb-4 bg-[#EFEDED] text-[#000] rounded-sm md:rounded-lg"
-                onClick={handleBack}
-              >
-                Back
-              </button>
+    <button className="md:hidden font-semibold text-sm md:px-4 py-2 md:mb-4   text-purple-800 "
+      onClick={handleBack} >
+        <IoReturnUpBackSharp/>
+          </button>
       <div className="flex xl:flex-row flex-col  items-center gap-[30px]">
       <div className=" relative  w-[80px] lg:w-[130px]">
         <img src={profile} className=" " />

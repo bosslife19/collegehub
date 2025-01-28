@@ -128,6 +128,28 @@
   /* height: 100%; */
  }
 
+ .bgbanners{
+   
+  background:linear-gradient(to right, #987c9031, #91447b93), url("./assets/0_Getty.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: end;
+  width: 100%;
+   /* margin-top: 30px; */
+  height: 100%;
+ }
+
+ .bgbannered{
+   
+  background:linear-gradient(to right, #987c9031, #91447b93), url("./assets/COLOURBOX34157221.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: end;
+  width: 100%;
+   /* margin-top: 30px; */
+  height: 100%;
+ }
+
  @keyframes reading {
   0% {
     color: lightblue;

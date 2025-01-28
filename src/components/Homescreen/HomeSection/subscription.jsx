@@ -1,5 +1,5 @@
  
-import Goods from '../../../../assets/good'
+import Goods from '../../../assets/good'
 
 const Sub = () => {
   
@@ -51,10 +51,10 @@ const Sub = () => {
       <h3 className='text-center pb-[30px] md:text-[32px] font-inter text-[#fff] font-[600]'>Subscriptions</h3>
     <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
     {subscribe.map((items, index)=>(
-        <div key={index} className='flex w-full  bg-[#F4E2EF] justify-center border px-[25px] pt-[13px] pb-[0.3%] rounded-[25px] flex-col '>
+        <div key={index} className='flex m-auto    md:w-full  bg-[#F4E2EF] justify-center border px-[25px] pt-[13px] pb-[0.3%] rounded-[25px] flex-col '>
            <h4 className='text-[18px] md:text-[20px] md:leading-[30px] font-[700]'>{items.title}</h4>
             <div className='flex'>
-            <span className='mt-[0px] ml-[5px] text-[16px] md:text-[26px] leading-[30px] font-[700]'>{items.price}
+            <span className='mt-[0px] ml-[5px] text-[16px] md:text-[23px] font-inter leading-[30px] font-[400]'>{items.price}
             </span>
             <p className='md:mt-[10px] font-[400] text-[14px] md:text-[20px] leading-[36px]'>/mo</p>
             </div>

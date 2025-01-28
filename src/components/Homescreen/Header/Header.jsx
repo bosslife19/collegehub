@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
- import LOGO from '../../../../assets/LOGO';
+ import LOGO from '../../../assets/LOGO';
  
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,8 +17,8 @@ const Header = () => {
 
   const HeadNav = [
     {
-      title: "About us",
-      link:"/about-us"
+      title: "Home",
+      link:"/home"
       // links: [
       //   { title: "Social", link: "/social" },
       //   { title: "Socials", link: "/socials" },
@@ -34,6 +34,7 @@ const Header = () => {
     },
     {
       title: "Rides",
+      link:"/ride"
       // links: [
       //   { title: "Resources", link: "/resources" },
       //   { title: "Guides", link: "/guides" },
@@ -41,6 +42,7 @@ const Header = () => {
     },
     {
       title: "Services",
+      link:"/service"
       // links: [
       //   { title: "Events", link: "/events" },
       //   { title: "Services", link: "/services" },
@@ -195,9 +197,7 @@ const Header = () => {
           ))}
         </ul>
         <div className='w-[200px] flex gap-[20px] justify-end items-end'>
-        <Link to="#" className=' py-[10px] font-[600] text-[#91447B]'>
-          Contact Us
-        </Link>
+        
         <Link to="/login" className=' py-[10px] px-[15px] font-[600] text-[#fff] rounded-[10px] bg-[#91447B]'>
           Sign Up
         </Link>

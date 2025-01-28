@@ -195,9 +195,9 @@ const SideBarItem = ({ sidebarOpen, setSidebarOpen }) => {
                     }`}
                     style={{
                       background: activeMainIndex === mainIndex 
-                        ? "linear-gradient(90deg, #D2E4FD 0%, #FFFFFF 85.37%)"
+                        ? "linear-gradient(90deg, #F3E1ED 0%, #FFFFFF 85.37%)"
                         : "transparent",
-                      borderLeft: activeMainIndex === mainIndex ? "3px solid blue" : "none", // Adds blue border for active item
+                      borderLeft: activeMainIndex === mainIndex ? "3px solid #91447B" : "none", // Adds blue border for active item
                     }}
                   >
                     <item.icon

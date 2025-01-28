@@ -11,14 +11,14 @@ function ProtectedRoute({ children }) {
     if (!isAuthenticated) {
       // Redirect to login after a delay
       const timer = setTimeout(() => {
-        navigate("/Homescreen"); // Redirect to the login page
+        navigate("/home"); // Redirect to the login page
       }, 1000);
 
       return () => clearTimeout(timer); // Cleanup timer
     }
     const isAdmin = localStorage.getItem('isAdmin');
   if(isAdmin){
-    return navigate('/Homescreen')
+    return navigate('/home')
   }
   }, []);
 

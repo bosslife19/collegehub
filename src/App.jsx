@@ -15,7 +15,12 @@ import Login from './components/Auth/Login&Signup/Login';
 import FindBoard from './components/Navs/FindRoommates/FindBoard';
 import ProtectedRoute from './UI/Layout/ProtectedRoute';
 import SignUp from './components/Auth/Login&Signup/SignUp';
-import Homepage from './components/Auth/SignupSection/Homepage';
+import Homepage from './components/Homescreen/Homepage';
+import PrivacyNotice from './components/TermsAndPrivacy/Privacy';
+import TermsOfService from './components/TermsAndPrivacy/Terms';
+import AboutRide from './components/Navs/Rides/AboutRide';
+import ServicePage from './components/Navs/Services/ServicePage';
+// import Homepage from './components/Auth/SignupSection/Homepage';
 // import AppLayout from './UI/Layout/AppLayout';
 
 
@@ -43,13 +48,25 @@ function App() {
               <Route path="/Signup" element={<SignUp />} />
 
               {/* Homescreen */}
-              <Route path="/Homescreen" element={<Homepage />} />
+              <Route path="/home" element={<Homepage />} />
              
               {/* Find a roommate */}
               <Route path="/Find-a-Roommate" element={<FindBoard />} />
               
+              {/* privacy */}
+              <Route path="/privacy-notice" element={<PrivacyNotice />} />
               
+              {/* Find a roommate */}
+               <Route path="/terms-of-service" element={<TermsOfService />} />
 
+              {/* Find a roommate */}
+              <Route path="/ride" element={<AboutRide />} />
+
+               {/* service */}
+               <Route path="/service" element={<ServicePage />} />
+
+              
+              
               {/* Admin Routes */}
 
               <Route

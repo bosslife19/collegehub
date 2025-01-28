@@ -1,9 +1,9 @@
  import Header from './Header'
 import BodySection from './BodySection'
 import Banner from './Banner'
-import TestimonialSlider from '../../Auth/SignupSection/Testimonials'
-import Footer from '../../Auth/SignupSection/Footer'
-
+ import Footer from '../../Homescreen/Footer'
+import TestimonialSlider from '../../Homescreen/Testimonials'
+ 
 const FindBoard = () => {
   return (
     <>

@@ -3,14 +3,14 @@ import { BiArrowBack, BiArrowFromRight } from 'react-icons/bi';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import img from "../../../../assets/slide1.png";
-import imgs from "../../../../assets/pexels-olly-3764402 1.png";
-import img2 from "../../../../assets/pexels-keira-burton-6146978 1.png";
+import img from "../../../assets/slide1.png";
+import imgs from "../../../assets/pexels-olly-3764402 1.png";
+import img2 from "../../../assets/pexels-keira-burton-6146978 1.png";
 
  import { Link } from 'react-router-dom';
   
 import InfinteImage from '../InfiniteScroll';
-const Signup = () => {
+const HomeBanner = () => {
   const sliderData = [
     {
       header: "Welcome to College Hub!",
@@ -19,8 +19,8 @@ const Signup = () => {
         "Step into College Hub, where connections begin, opportunities thrive, and campus life gets easier.",
       image: imgs,
       links: [
-        { text: "Get Started Now!", url: "/home" },
-        { text: "Event Calendar", url: "/community-forums" },
+        { text: "Get Started Now!", url: "/dashboard" },
+        { text: "Event Calendar", url:""},
       ],
     },
     {
@@ -30,7 +30,7 @@ const Signup = () => {
       "Click  now to connect with compatible roommates and create your ideal living space!",
     image: img2,
       links: [
-        { text: "Find your perfect roommate now!", url: "/roommate-rides" },
+        { text: "Find your perfect roommate now!", url: "/Roommates" },
         
       ],
     },
@@ -41,7 +41,7 @@ const Signup = () => {
       "Connect, share, and grow with like-minded individuals. Start your journey with us today!",
     image: img,
       links: [
-        { text: "Community Forums", url: "/roommate-rides" },
+        { text: "Community Forums", url: "/CommunityGroupchat" },
        
       ],
     },
@@ -136,7 +136,7 @@ const Signup = () => {
           {/* Content Container */}
           <div className="md:w-1/2 flex flex-col justify-center items-center text-center text-[#fff] bg-[#91447B] p-1 md:p-4">
             <h2 className="md:mb-2 text-[14px] md:text-[20px] leading-[25.78px] font-thin">
-              {slide.header}
+              {slide.header} 
             </h2>
             <h3 className="text-[17px] md:text-[30px] font-alata md:leading-[45.12px] font-semibold">
               {slide.semiHeader}
@@ -172,4 +172,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default HomeBanner;

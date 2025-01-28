@@ -55,10 +55,10 @@ const Banner = () => {
     }),
   };
   return (
-    <div className='pt-[100px] md:flex justify-between font-alata   '>
+    <div className='pt-[100px] bg-[#fff] pb-[40px] md:flex gap-[30px] justify-between font-alata   '>
      <div className='md:w-[60%] block bg-[#F4E2EF] pt-[30px] md:pt-[90px] px-[30px]'>
      <h3 className=' font-[600] text-[20px] md:text-[30px] mb-3'>Find the perfect living space</h3>
-      <p className='font-[400] text-[12px] md:text-[14px] tracking-[1px] mb-3 md:w-[500px] '>We’ve made finding the perfect living space for yourself and roommate easier!</p>
+      <p className='font-[400] text-[12px] md:text-[14px] font-inter mb-3 md:w-[500px] '>We’ve made finding the perfect living space for yourself and roommate easier!</p>
       <div className=" grid grid-cols-2   md:grid-cols-5 gap-[20px] md:gap-0 p-6 md:p-4 rounded-[50px]  items-center">
         {/* Location Dropdown */}
         <div className="bg-white border-r p-[5px] md:p-[22px] rounded-[10px] md:rounded-l-[100px]">
@@ -68,7 +68,7 @@ const Banner = () => {
 
         {/* Property Dropdown */}
         <div className="bg-white border-r p-[5px] md:p-[22px] md:rounded-none rounded-[10px]">
-          <label className="block text-[#91447B] font-[600] text-[10px] md:text-[14px] font-inter mb-2">Property Type</label>
+          <label className="block text-[#91447B] font-[600] text-[10px] md:text-[13px] font-inter mb-2">Property Type</label>
           <Select options={PropertyType} placeholder=" Property" styles={customStyles} />
         </div>
 
@@ -90,7 +90,7 @@ const Banner = () => {
       </div>
       </div>
       <div className='md:w-[40%] hidden md:block'>
-        <img src={imgs} />
+        <img src={imgs} className=" h-[400px] w-full" />
       </div>
     </div>
   )

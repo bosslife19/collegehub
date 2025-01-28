@@ -1,13 +1,13 @@
-import insta from "../../../assets/instagram-logo-facebook-svgrepo-com.png";
-import fb from "../../../assets/facebook-rounded-svgrepo-com.png";
-import tik from "../../../assets/Tiktok.png";
-import youtube from "../../../assets/youtube-rounded-svgrepo-com.png";
-import LOGO from '../../../assets/LOGO';
+import insta from "../../assets/instagram-logo-facebook-svgrepo-com.png";
+import fb from "../../assets/facebook-rounded-svgrepo-com.png";
+import tik from "../../assets/Tiktok.png";
+import youtube from "../../assets/youtube-rounded-svgrepo-com.png";
+import LOGO from '../../assets/LOGO';
 
 const sections = [
   {
     title: "Overview",
-    links: ["About Us", "Mission", "Global Reach"],
+    links: ["Home", "Mission", "Global Reach"],
   },
   {
     title: "Quick Links",
