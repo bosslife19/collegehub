@@ -3,9 +3,11 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import { ToastContainer } from 'react-toastify'
+import { AuthProvider } from './context/AuthContext.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <AuthProvider>
     <App />
     <ToastContainer 
      position="top-right"  // Position of the toast
@@ -19,5 +21,7 @@ createRoot(document.getElementById('root')).render(
      pauseOnHover={true}     // Pause the toast on hover
      theme="light"      
     />
+    </AuthProvider>
+    
   </StrictMode>,
 )

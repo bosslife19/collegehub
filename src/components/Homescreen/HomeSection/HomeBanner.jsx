@@ -41,7 +41,7 @@ const HomeBanner = () => {
       "Connect, share, and grow with like-minded individuals. Start your journey with us today!",
     image: img,
       links: [
-        { text: "Community Forums", url: "/CommunityGroupchat" },
+        { text: "Community Forums", url: "/community-group-chat" },
        
       ],
     },

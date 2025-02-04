@@ -45,13 +45,13 @@ function App() {
                   </PageTransition>
                 }
               />
-              <Route path="/Signup" element={<SignUp />} />
+              <Route path="/signup" element={<SignUp />} />
 
               {/* Homescreen */}
               <Route path="/home" element={<Homepage />} />
              
               {/* Find a roommate */}
-              <Route path="/Find-a-Roommate" element={<FindBoard />} />
+              <Route path="/find-a-Roommate" element={<FindBoard />} />
               
               {/* privacy */}
               <Route path="/privacy-notice" element={<PrivacyNotice />} />
@@ -91,16 +91,16 @@ function App() {
                 />
 
                  {/* Roommates */}
-                <Route path="/Roommates" element={<Roomates />} />
+                <Route path="/roommates" element={<Roomates />} />
 
                 {/* ChatPage */}
                 <Route
-                  path="/Messages"
+                  path="/messages"
                   element={<Chats />}
                 />
 
                 {/* GroupChatPage*/}
-                <Route path="/CommunityGroupchat" element={<GroupChatPage />} />
+                <Route path="/community-group-chat" element={<GroupChatPage />} />
 
                 {/* Rides */}
                 <Route

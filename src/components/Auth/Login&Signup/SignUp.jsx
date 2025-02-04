@@ -1,28 +1,80 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import { useContext, useState } from "react";
 // import google from "../../../assets/Googlelogo.png"
  import college from "../../../assets/cool.png"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Spinner from "../../../alert/welcomLoading/ButtonLoading/ButtonLoading";
 import { BiHide, BiShow } from "react-icons/bi";
 import Select from "react-select";
 import Flag from "react-world-flags";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
+import axios from "axios";
+
+import { toast } from "react-toastify";
  
 const SignUp = ({ toggleForm }) => {
   const [showPasswords, setShowPasswords] = useState(false); // Toggle password visibility
-
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('')
+  const [email, setEmail] = useState('')
+  const [school, setSchool] = useState('')
+  const [sex, setSex] = useState('')
+  const [degree, setDegree] = useState('')
+  const [phone, setPhone] = useState('')
+  const [age, setAge] = useState('')
+  const navigate = useNavigate()
+  const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
     const [showPassword, setShowPassword] = useState(false); // Toggle password visibility
      const [buttonSpinner, setButtonSpinner] = useState(false);
-     const [phoneNumber, setPhoneNumber] = useState("");
+     
      const [selectedCountry, setSelectedCountry] = useState(null);
-   
-     const handleSignup = () =>{
-        setButtonSpinner(true)
-        setTimeout(() => {
-            setButtonSpinner(false) 
-        }, 2000);
+     
+     const handleSignup = async(e) =>{
+      e.preventDefault();
+      if(!isChecked){
+        return alert('Please agree to our terms')
+      }
+
+      if(!firstName || !lastName || !selectedCountry || !password || !confirmPassword || !phone ||!age ||!sex||!degree||!school||!email){
+        return alert('All the fields are required')
+      }
+
+      if(password != confirmPassword){
+       
+        return alert('password and confirm password fields do not match');
+      }
+
+      try {
+       setButtonSpinner(true);
+       const res = await axios.post(`${import.meta.env.VITE_BASE_URL}/api/register`, {
+          name: `${firstName} ${lastName}`,
+          email,
+          password,
+          age,
+          country:selectedCountry.name,
+          degree,
+          phone,
+          school,
+          sex
+
+          
+          
+        })
+        setButtonSpinner(false);
+        toast.success('Your account has been registered successfully')
+        setTimeout(()=>{
+          navigate('/login');
+        },2000)
+      
+        
+
+      } catch (error) {
+        setButtonSpinner(false)
+        console.log(error);
+      }
+        
       }
   const [isChecked, setIsChecked] = useState(false);
 
@@ -80,6 +132,7 @@ const SignUp = ({ toggleForm }) => {
     { value: "other", label: "Other" },
   ];
 
+ 
 
     // Country data with country codes and names
     const countries = [
@@ -116,7 +169,7 @@ const SignUp = ({ toggleForm }) => {
                 <label className="absolute top-[-14px] px-1 font-nunito font-[500] text-[13px] leading-[30px] md:text-[19px] bg-[#fff]">
                   First Name
                 </label>
-                <input type="text" className="w-full outline-none" />
+                <input type="text" className="w-full outline-none" onChange={e=>setFirstName(e.target.value)} />
               </div>
     
               {/* Last Name */}
@@ -124,7 +177,7 @@ const SignUp = ({ toggleForm }) => {
                 <label className="absolute px-1 top-[-14px] font-nunito font-[500] text-[13px] leading-[30px] md:text-[19px] bg-[#fff]">
                   Last Name
                 </label>
-                <input type="text" className="w-full outline-none" />
+                <input type="text" className="w-full outline-none" onChange={e=>setLastName(e.target.value)}/>
               </div>
     
               {/* Age */}
@@ -132,7 +185,7 @@ const SignUp = ({ toggleForm }) => {
                 <label className="absolute top-[-14px] px-1 font-nunito font-[500] text-[13px] leading-[30px] md:text-[19px] bg-[#fff]">
                   Age
                 </label>
-                <Select options={ageOptions} placeholder="" styles={customStyles} />
+                <Select options={ageOptions} placeholder="" styles={customStyles} onChange={e=>setAge(e.value)} />
               </div>
     
               {/* Sex Dropdown */}
@@ -140,7 +193,7 @@ const SignUp = ({ toggleForm }) => {
                 <label className="absolute top-[-14px] px-1 font-nunito font-[500] text-[13px] leading-[30px] md:text-[19px] bg-[#fff]">
                   Sex
                 </label>
-                <Select options={sexOptions} placeholder=" " styles={customStyles} />
+                <Select options={sexOptions} placeholder=" " styles={customStyles} onChange={e=>setSex(e.value)} />
               </div>
     
               {/* School */}
@@ -148,7 +201,7 @@ const SignUp = ({ toggleForm }) => {
                 <label className="absolute top-[-14px] px-1 font-nunito font-[500] text-[13px] leading-[30px] md:text-[19px] bg-[#fff]">
                   School
                 </label>
-                <input type="text" className="w-full outline-none" />
+                <input type="text" className="w-full outline-none" onChange={e=>setSchool(e.target.value)} />
               </div>
     
               {/* Degree Dropdown */}
@@ -156,7 +209,7 @@ const SignUp = ({ toggleForm }) => {
                 <label className="absolute top-[-14px] px-1 font-nunito font-[500] text-[13px] leading-[30px] md:text-[19px] bg-[#fff]">
                   Degree
                 </label>
-                <Select options={Degree} placeholder="" styles={customStyles} />
+                <Select options={Degree} placeholder="" styles={customStyles} onChange={(e)=>setDegree(e.value)} />
               </div>
     
               {/* Mobile Number */}
@@ -166,7 +219,7 @@ const SignUp = ({ toggleForm }) => {
                 </label>
                 <PhoneInput
                  styles={customStyles}
-                 onChange={setPhoneNumber}
+                 onChange={setPhone}
                   defaultCountry="NG"
                   international
                   className=" outline-none border-none"
@@ -195,7 +248,7 @@ const SignUp = ({ toggleForm }) => {
               <label className="absolute top-[-14px] px-1 font-nunito font-[500] text-[13px] leading-[30px] md:text-[19px] bg-[#fff]">
                 Email
               </label>
-              <input type="email" className="w-full outline-none" />
+              <input type="email" className="w-full outline-none" onChange={e=>setEmail(e.target.value)}  />
             </div>
     
             {/* Password */}
@@ -206,6 +259,7 @@ const SignUp = ({ toggleForm }) => {
               <input
                 type={showPassword ? "text" : "password"}
                 className="w-full outline-none text-[12px] md:text-[16px]"
+                onChange={e=>setPassword(e.target.value)}
               />
               <span
                 onClick={() => setShowPassword(!showPassword)}
@@ -224,6 +278,7 @@ const SignUp = ({ toggleForm }) => {
               <input
                 type={showPasswords ? "text" : "password"}
                 className="w-full outline-none text-[12px] md:text-[16px]"
+                onChange={e=>setConfirmPassword(e.target.value)}
               />
               <span
                 onClick={() => setShowPasswords(!showPasswords)}
@@ -295,7 +350,7 @@ const SignUp = ({ toggleForm }) => {
             </div> */}
           </form>
           <div>
-          <h2 className="text-[#91447B] my-[4%] text-[20px] md:text-[32px] font-bold font-inter text-center ">Welcome back to Gradzz</h2>
+          <h2 className="text-[#91447B] my-[4%] text-[20px] md:text-[32px] font-bold font-inter text-center ">Welcome to Gradzz</h2>
 
             <img src={college} alt="College" className="pt-[40px] mx-auto md:pt-[0px] md:h-[458px] w-[200px] md:w-full object-cover" />
           </div>

@@ -40,20 +40,20 @@ const Profile = ({setActiveTab}) => {
   const handleChange = (selectedOption) => {
     setSelectedCountry(selectedOption);
   };
-  const paddings =[
-    {
-      icon:<Cube/>,
-      text:"OverView"
-    },
-    {
-      icon:<Community/>,
-      text:"communities"
-    },
-    {
-      icon:<Friends/>,
-      text:"Friends"
-    },
-  ]
+  // const paddings =[
+  //   {
+  //     icon:<Cube/>,
+  //     text:"OverView"
+  //   },
+  //   {
+  //     icon:<Community/>,
+  //     text:"communities"
+  //   },
+  //   {
+  //     icon:<Friends/>,
+  //     text:"Friends"
+  //   },
+  // ]
   const handleBack = () => {
     setActiveTab(null); // Reset active tab to null for mobile view
   };
@@ -64,14 +64,14 @@ const Profile = ({setActiveTab}) => {
       onClick={handleBack} >
         <IoReturnUpBackSharp/>
           </button>
-      <div className="flex xl:flex-row flex-col  items-center gap-[30px]">
+      <div className="flex xl:flex-row flex-col justify-center items-center gap-[30px]">
       <div className=" relative  w-[80px] lg:w-[130px]">
         <img src={profile} className=" " />
        <div className=" absolute bottom-0  right-[-10px] lg:right-0">
        <Camera/> 
        </div>
       </div>
-      <div  className="flex justify-center gap-[10px] md:justify-between w-full items-center font-inter pt-[20px] xl:gap-[40px] flex-wrap">
+      {/* <div  className="flex justify-center gap-[10px] md:justify-between w-full items-center font-inter pt-[20px] xl:gap-[40px] flex-wrap">
         {paddings.map((items, index)=>(
           <div key={index}>
              <span  className="flex justify-between px-[8px] md:px-[13px] gap-2 font-semibold  rounded-[8px] text-[12px] md:text-[14px] py-[8px] md:py-[12px] items-center bg-[#EFEDED] text-[#000]">
@@ -80,7 +80,7 @@ const Profile = ({setActiveTab}) => {
            </span>
           </div>
         ))}
-      </div>
+      </div> */}
 
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:p-6 max-w-2xl mx-auto">

@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { BiHide, BiShow } from "react-icons/bi";
 // import google from "../../../assets/Googlelogo.png"
  import college from "../../../assets/cool.png"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Spinner from "../../../alert/welcomLoading/ButtonLoading/ButtonLoading";
+import axios from "axios";
+import { AuthContext } from "../../../context/AuthContext";
+import { toast } from "react-toastify";
 
 
 // eslint-disable-next-line react/prop-types
@@ -12,17 +15,41 @@ const Login = ({ toggleForm }) => {
     const [showPassword, setShowPassword] = useState(false); // Toggle password visibility
     //  const [error, setError] = useState("");
     const [buttonSpinner, setButtonSpinner] = useState(false);
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const {setUserDetails} = useContext(AuthContext)
+    const navigate = useNavigate();
 
     // const handlePasswordChange = (e) => {
     //     setError("");
     //     const value = e.target.value.replace(/[^0-9]/g, "");  
     //     setPassword(value);
     //   };
-      const handleLogin = () =>{
+      const handleLogin = async(e) =>{
+        e.preventDefault();
+       if(!email || !password){
+        return alert('All fields are required')
+       }
+       try {
         setButtonSpinner(true)
-        setTimeout(() => {
-            setButtonSpinner(false) 
-        }, 2000);
+        const res = await axios.post(`${import.meta.env.VITE_BASE_URL}/api/login`, {email, password});
+        if(res.data.status){
+          setButtonSpinner(false)
+          
+          setUserDetails(res.data.user);
+          localStorage.setItem('ACCESS_TOKEN', res.data.token);
+          toast.success('Logged in successfully');
+          setTimeout(()=>{
+            navigate('/');
+          }, 2000)
+        }
+       } catch (error) {
+        console.log(error)
+        setButtonSpinner(false)
+        if(error.response.data.message){
+          toast.error(error.response.data.message);
+        }
+       }
       }
 
   return (
@@ -44,6 +71,7 @@ const Login = ({ toggleForm }) => {
                 <input 
                 type="email"
                 className="w-full outline-none"
+                onChange={e=>setEmail(e.target.value)}
                 />
                </div>
                <div className="flex items-center border relative border-[#000000]  p-[8px] md:p-[14px] rounded-[4px]  ">
@@ -51,6 +79,7 @@ const Login = ({ toggleForm }) => {
                     Password
                 </label>
                 <input
+              onChange={e=>setPassword(e.target.value)}
               type={showPassword ? "text" : "password"} // Switch input type based on visibility
               className="w-full outline-none  text-[12px] md:text-[16px]"
             //   value={password}
@@ -81,7 +110,7 @@ const Login = ({ toggleForm }) => {
             )}
              </button>
             <span className=" font-nunito font-[500] text-[11px] md:text-[17px] leading-[27px]">
-            Don’t have an account? <Link to="/Signup" onClick={toggleForm} className="text-[#91447B] font-[600]">SignUp</Link>
+            Don’t have an account? <Link to="/signup" onClick={toggleForm} className="text-[#91447B] font-[600]">SignUp</Link>
             </span>
            </div>
            {/* <div className="flex justify-between items-center">

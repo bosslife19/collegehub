@@ -69,9 +69,9 @@ const Homesection = () => {
       {/* Box Category */}
       <div className="flex gap-2 items-center py-[20px]">
         <h2 className="font-[700] text-[17px] md:text-[24px] leading-[30.94px] text-[#000]">
-          Category
+          Groups
         </h2>
-        <BiSolidDownArrow className="md:text-lg" />
+        {/* <BiSolidDownArrow className="md:text-lg" /> */}
       </div>
 
       {/* Group Cards */}
