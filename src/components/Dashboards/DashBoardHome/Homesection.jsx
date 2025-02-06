@@ -56,7 +56,7 @@ const Homesection = () => {
      {isLoading ? (
         <Loader onComplete={() => setIsLoading(false)} />
       ) : (
-    <div className="anaheim-font">
+    <div className="anaheim-font h-full">
       <div className="bgimg flex flex-col justify-center items-center anaheim-font">
         <h2 className="font-[600] text-[30px] md:text-[60px] md:leading-[77.34px] text-[#FFFFFF]">
           Community Directory
