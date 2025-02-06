@@ -10,9 +10,11 @@ import { useState, useEffect, useMemo } from "react";
  import { HiOutlineDotsVertical } from "react-icons/hi";
  import { FaPause,   FaPhoneAlt, FaPlay, FaVideo } from "react-icons/fa";
 import Ausdio from "../../../assets/audio";
-import Adds from "../../../assets/adds";
+// import Adds from "../../../assets/adds";
 import { CiSearch } from "react-icons/ci";
-
+import AddUserPage from "./AddUser/Addchat";
+import { Link } from "react-router-dom";
+ 
  const ChatPage = () => {
   const [selectedChat, setSelectedChat] = useState(null);
   const [messages, setMessages] = useState({});
@@ -25,19 +27,10 @@ import { CiSearch } from "react-icons/ci";
 //   const [showEmojiPicker, setShowEmojiPicker] = useState(false); // State for controlling emoji picker visibility
 const [audioState, setAudioState] = useState({ playing: null, audio: null });
 const [filterText, setFilterText] = useState("");
-// const [activeTab, setActiveTab] = useState("all"); 
-const [chats, setChats] = useState([
+ const [chats, setChats] = useState([
       { id: 1, name: "John Doe", type: "chat", lastSeen: "10 minutes ago" ,img:record,  hasNotification: true,number:1},
       { id: 2, name: "Jane Smith", type: "chat", lastSeen: "20 minutes ago", img:imgss ,  hasNotification: true,number:3 },
-      { id: 3, name: "Team Alpha", type: "chat", lastSeen: "5 minutes ago" ,img:imgss ,  hasNotification: false,number:4},
-      { id: 4, name: "Project Beta", type: "chat", lastSeen: "30 minutes ago",img:imgss ,  hasNotification: true,number:3 },
-      { id: 5, name: "Project Beta", type: "chat", lastSeen: "30 minutes ago",img:record,  hasNotification: true,number:3  },
-      { id: 6, name: "Project Beta", type: "chat", lastSeen: "30 minutes ago",img:record,  hasNotification: true,number:3  },
-      { id: 7, name: "Project Beta", type: "chat", lastSeen: "30 minutes ago",img:record,  hasNotification: true,number:3  },
-      { id: 8, name: "Project Beta", type: "chat", lastSeen: "30 minutes ago" ,img:record,  hasNotification: true,number:3 },
-      { id: 9, name: "Project Beta", type: "chat", lastSeen: "30 minutes ago",img:record,  hasNotification: true,number:3  },
-      { id: 10, name: "Project Beta", type: "chat", lastSeen: "30 minutes ago" ,img:record,  hasNotification: true,number:3 },
-  
+   
     ]);
 
   const filteredChats = useMemo(() => {
@@ -82,9 +75,11 @@ const [chats, setChats] = useState([
       setMessages((prev) => ({ ...prev, [chat.id]: [] })); 
     }
   };
-  const addNewChat = (newChat) => {
-    setChats((prevChats) => [...prevChats, newChat]);
+  const handleAddUser = (newUser) => {
+    setChats([...chats, newUser]); // Add new user to chat list
   };
+
+
   const handleSendMessage = (e) => {
     e.preventDefault();
     if (!newMessage.trim()) return;
@@ -170,7 +165,7 @@ const [chats, setChats] = useState([
      <h2 className="text-[27px] font-semibold text-gray-800  ">
           Chats
         </h2>
-        <Adds addNewChat={addNewChat} />
+        <AddUserPage onAddUser={handleAddUser}  />
      </div>
      
 
@@ -219,14 +214,21 @@ const [chats, setChats] = useState([
       </ul>
     </div>
  
-    {/*    */}
+    {/*  Chat Room  */}
       <div className="flex-1 flex flex-col rounded-[20px]    w-full h-[400px] py-[5%] md:py-[0px]  lg:w-[400px] xl:w-full md:h-[550px]">
         {selectedChat ? (
           <>
             {/* Chat Header */}
             <div className="border-b bg-[#fff] rounded-t-[20px]  border-gray-300 px-4 py-3 flex justify-between items-center">
               <div className="flex items-center">
-                <div className="w-10 h-10 rounded-full bg-gray-300 mr-3"></div>
+                
+              <Link to={`/user/${selectedChat.id}`}>
+            <img
+            src={selectedChat.img}
+             className="w-10 h-10 object-cover rounded-full bg-gray-300 mr-3"
+             />
+              </Link>
+
                 <div>
                   <h3 className="text-[17px] font-semibold">{selectedChat.name}</h3>
                   <span className="text-sm text-gray-500">

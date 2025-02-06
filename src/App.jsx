@@ -20,6 +20,7 @@ import PrivacyNotice from './components/TermsAndPrivacy/Privacy';
 import TermsOfService from './components/TermsAndPrivacy/Terms';
 import AboutRide from './components/Navs/Rides/AboutRide';
 import ServicePage from './components/Navs/Services/ServicePage';
+import UserProfilePage from './components/Dashboards/Chats/UserProfile/UserProfile';
 // import Homepage from './components/Auth/SignupSection/Homepage';
 // import AppLayout from './UI/Layout/AppLayout';
 
@@ -98,6 +99,14 @@ function App() {
                   path="/messages"
                   element={<Chats />}
                 />
+
+                 {/* Profile Details*/}
+                 <Route
+                  path="/user/:userId"
+                  element={<UserProfilePage />}
+                />
+
+
 
                 {/* GroupChatPage*/}
                 <Route path="/community-group-chat" element={<GroupChatPage />} />
