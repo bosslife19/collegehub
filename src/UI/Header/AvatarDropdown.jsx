@@ -1,11 +1,12 @@
-/* eslint-disable no-unused-vars */
-import React, { useState,
-   useEffect, useRef, useContext } from "react";
+/* eslint-disable react/prop-types */
+import  { useState, useEffect, useRef } from "react";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
-import Avatars from "../../assets/profiles.png";
-// import { AuthContext } from "../../../context/AuthContext";
+import { useProfileImage } from "../../context/ProfileContext";
+import defaultProfileImage from "../../assets/logoimg.png"; // Import image directly
 
 const AvatarDropdown = ({ options }) => {
+  const { profileImage } = useProfileImage();
+
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -23,26 +24,26 @@ const AvatarDropdown = ({ options }) => {
       document.removeEventListener("mousedown", closeDropdown);
     };
   }, []);
-// const {userDetails} = useContext(AuthContext);
+
   return (
-    <div className="relative flex items-center gap-3 cursor-pointer" 
-    // ref={dropdownRef}
-    >
+    <div className="relative flex items-center gap-3 cursor-pointer" ref={dropdownRef}>
       <div className="cursor-pointer flex" onClick={toggleDropdown}>
         <div className="flex-col flex px-2">
-          <span>{
-          // userDetails?.name||
-          'Mako'}</span>
+          <span>Mako</span>
           <span>U.P, India</span>
         </div>
-        <img src={Avatars} alt="Avatar" className="object-cover w-10 h-10 rounded-full" />
+        <img
+          src={profileImage || defaultProfileImage}
+          alt="Avatar"
+          className="object-cover w-10 h-10 rounded-full"
+        />
       </div>
 
-      {/* <div onClick={toggleDropdown}>
+      <div onClick={toggleDropdown}>
         {isOpen ? <FaChevronUp className="text-gray-500" /> : <FaChevronDown className="text-gray-500" />}
-      </div> */}
+      </div>
 
-      {/* {isOpen && (
+      {isOpen && (
         <div className="absolute right-0 top-12 bg-white shadow-md rounded-md w-48 z-50">
           {options.map((option, index) => (
             <div
@@ -58,7 +59,7 @@ const AvatarDropdown = ({ options }) => {
             </div>
           ))}
         </div>
-      )} */}
+      )}
     </div>
   );
 };

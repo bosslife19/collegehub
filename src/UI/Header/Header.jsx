@@ -1,17 +1,39 @@
-import { useState } from "react";
+/* eslint-disable react/prop-types */
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
- import { HiOutlineLogout } from "react-icons/hi";
+import { HiOutlineLogout } from "react-icons/hi";
 import AvatarDropdown from "./AvatarDropdown";
- import Search from "../Input/components/Search";
+import Search from "../Input/components/Search";
+import { BsCamera } from "react-icons/bs";
+ import { useProfileImage } from "../../context/ProfileContext";
 
 const Header = ({ sidebarOpen, setSidebarOpen }) => {
-  const [searchQuery, setSearchQuery] = useState(''); // State to manage search input
-  const [dropdownOpen, setDropdownOpen] = useState(null); // State to track which dropdown is open
-  // const [selectedLanguage, setSelectedLanguage] = useState("en-US");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [dropdownOpen, setDropdownOpen] = useState(null);
+  const { profileImage, setProfileImage } = useProfileImage();
   const navigate = useNavigate();
+  const fileInputRef = useRef(null);
+
+  const handleFileSelection = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => setProfileImage(reader.result);
+      reader.readAsDataURL(file);
+    }
+  };
 
   const dropdownOptions = [
-    
+    {
+      text: "Change Profile",
+      icon: BsCamera,
+      color: "text-[#000]",
+      handler: handleFileSelection,
+    },
     {
       text: "Logout",
       icon: HiOutlineLogout,
@@ -23,24 +45,8 @@ const Header = ({ sidebarOpen, setSidebarOpen }) => {
     },
   ];
 
-  // List of available languages with flag-icon classes
-  // const languages = [
-  //   { code: "en-GB", name: "English (UK)", flagClass: "fi-gb" },
-  //   { code: "en-US", name: "English (US)", flagClass: "fi-us" },
-  // ];
-
-  // const handleLanguageChange = (language) => {
-  //   setSelectedLanguage(language);
-  //   console.log(`Language changed to: ${language}`);
-  //   setDropdownOpen(null); // Close both dropdowns
-  // };
-
   const toggleDropdown = (dropdownType) => {
-    if (dropdownOpen === dropdownType) {
-      setDropdownOpen(null); // Close the dropdown if it is already open
-    } else {
-      setDropdownOpen(dropdownType); // Open the selected dropdown and close the other
-    }
+    setDropdownOpen(dropdownOpen === dropdownType ? null : dropdownType);
   };
 
   return (
@@ -54,14 +60,10 @@ const Header = ({ sidebarOpen, setSidebarOpen }) => {
               e.stopPropagation();
               setSidebarOpen(!sidebarOpen);
             }}
-            className="block rounded-full bg-white  shadow-sm"
+            className="block rounded-full bg-white shadow-sm"
           >
             <svg
               className="h-10 w-10 fill-current p-2 border rounded-full text-blue"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
@@ -78,20 +80,22 @@ const Header = ({ sidebarOpen, setSidebarOpen }) => {
             name="search"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            disabled={false}
           />
         </div>
 
         {/* Header Actions */}
         <div className="flex items-center gap-5">
- 
-          {/* Avatar Dropdown */}
           <div className="border-l-2 pl-4">
             <button onClick={() => toggleDropdown("avatar")}>
-              <AvatarDropdown options={dropdownOptions} />
+              <AvatarDropdown options={dropdownOptions} profileImage={profileImage} />
             </button>
-
-            
+            <input
+              type="file"
+              accept="image/*"
+              ref={fileInputRef}
+              className="hidden"
+              onChange={handleImageChange}
+            />
           </div>
         </div>
       </div>

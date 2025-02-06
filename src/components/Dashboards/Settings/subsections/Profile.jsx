@@ -1,20 +1,33 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
  import { useState } from "react"
 import Camera from "../../../../assets/camera"
-import Community from "../../../../assets/community"
-import Cube from "../../../../assets/cube"
-import profile from  "../../../../assets/Ellipse 19.png"
-import Friends from "../../../../assets/friends"
+// import Community from "../../../../assets/community"
+// import Cube from "../../../../assets/cube"
+// import profile from  "../../../../assets/Ellipse 19.png"
+// import Friends from "../../../../assets/friends"
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import Select from "react-select";
 import Flag from "react-world-flags";
 import GoodGreen from "../../../../assets/goodGreen"
 import { IoReturnUpBackSharp } from "react-icons/io5"
+import defaultProfileImage from "../../../../assets/logoimg.png"; // Import image directly
+
+import { useProfileImage } from "../../../../context/ProfileContext"
 const Profile = ({setActiveTab}) => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [selectedCountry, setSelectedCountry] = useState(null);
+  const { profileImage, setProfileImage } = useProfileImage();
 
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => setProfileImage(reader.result);
+      reader.readAsDataURL(file);
+    }
+  };
   // Country data with country codes and names
   const countries = [
     { code: "NG", name: "Nigeria" },
@@ -40,20 +53,7 @@ const Profile = ({setActiveTab}) => {
   const handleChange = (selectedOption) => {
     setSelectedCountry(selectedOption);
   };
-  // const paddings =[
-  //   {
-  //     icon:<Cube/>,
-  //     text:"OverView"
-  //   },
-  //   {
-  //     icon:<Community/>,
-  //     text:"communities"
-  //   },
-  //   {
-  //     icon:<Friends/>,
-  //     text:"Friends"
-  //   },
-  // ]
+  
   const handleBack = () => {
     setActiveTab(null); // Reset active tab to null for mobile view
   };
@@ -66,10 +66,16 @@ const Profile = ({setActiveTab}) => {
           </button>
       <div className="flex xl:flex-row flex-col justify-center items-center gap-[30px]">
       <div className=" relative  w-[80px] lg:w-[130px]">
-        <img src={profile} className=" " />
-       <div className=" absolute bottom-0  right-[-10px] lg:right-0">
-       <Camera/> 
-       </div>
+        <img  src={profileImage || defaultProfileImage} className=" rounded-[50%] object-cover w-[130px] h-[120px]" />
+        <label className="absolute bottom-0 right-0 cursor-pointer">
+          <Camera />
+          <input
+            type="file"
+            accept="image/*"
+            className="hidden"
+            onChange={handleImageChange}
+          />
+        </label>
       </div>
       {/* <div  className="flex justify-center gap-[10px] md:justify-between w-full items-center font-inter pt-[20px] xl:gap-[40px] flex-wrap">
         {paddings.map((items, index)=>(

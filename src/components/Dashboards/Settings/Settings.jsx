@@ -14,7 +14,7 @@ import { LiaClipboardListSolid } from "react-icons/lia";
 import { IoReturnUpBackSharp, IoSettingsOutline } from "react-icons/io5";
 import Loader from "../../../alert/welcomLoading/loader";
 
-const SettingsPage = () => {
+const SettingsPage = ({profileImage}) => {
   // State to track active tab
   const [activeTab, setActiveTab] = useState(null);
 
@@ -40,7 +40,7 @@ const SettingsPage = () => {
 
   // Tabs configuration
   const tabs = [
-    { label: "Profile settings", icon: <FaUser />, component: <Profile setActiveTab={setActiveTab} /> },
+    { label: "Profile settings", icon: <FaUser />, component: <Profile setActiveTab={setActiveTab} profileImage={profileImage} /> },
     { label: "Account settings", icon: <IoSettingsOutline />, component: <Account /> },
     { label: "Notification", icon: <IoIosNotificationsOutline />, component: <Notification /> },
     // { label: "Subscription", icon: <MdSubscriptions />, component: <Subscription /> },

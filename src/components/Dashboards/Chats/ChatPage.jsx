@@ -25,10 +25,8 @@ import { CiSearch } from "react-icons/ci";
 //   const [showEmojiPicker, setShowEmojiPicker] = useState(false); // State for controlling emoji picker visibility
 const [audioState, setAudioState] = useState({ playing: null, audio: null });
 const [filterText, setFilterText] = useState("");
-const [activeTab, setActiveTab] = useState("all"); // Tabs: all, unread, favorites
-
-  const chats = useMemo(
-    () => [
+// const [activeTab, setActiveTab] = useState("all"); 
+const [chats, setChats] = useState([
       { id: 1, name: "John Doe", type: "chat", lastSeen: "10 minutes ago" ,img:record,  hasNotification: true,number:1},
       { id: 2, name: "Jane Smith", type: "chat", lastSeen: "20 minutes ago", img:imgss ,  hasNotification: true,number:3 },
       { id: 3, name: "Team Alpha", type: "chat", lastSeen: "5 minutes ago" ,img:imgss ,  hasNotification: false,number:4},
@@ -40,19 +38,14 @@ const [activeTab, setActiveTab] = useState("all"); // Tabs: all, unread, favorit
       { id: 9, name: "Project Beta", type: "chat", lastSeen: "30 minutes ago",img:record,  hasNotification: true,number:3  },
       { id: 10, name: "Project Beta", type: "chat", lastSeen: "30 minutes ago" ,img:record,  hasNotification: true,number:3 },
   
-    ],
-    []
-  );
+    ]);
+
   const filteredChats = useMemo(() => {
     return chats.filter((chat) => {
-      const matchesTab =
-        (activeTab === "all") ||
-        (activeTab === "unread" && chat.unread) ||
-        (activeTab === "favorites" && chat.favorites);
-      const matchesSearch = chat.name.toLowerCase().includes(filterText.toLowerCase());
-      return matchesTab && matchesSearch;
+       const matchesSearch = chat.name.toLowerCase().includes(filterText.toLowerCase());
+      return  matchesSearch;
     });
-  }, [chats, activeTab, filterText]);
+  }, [chats,filterText]);
 
   useEffect(() => {
     if (chats.length > 0) {
@@ -89,7 +82,9 @@ const [activeTab, setActiveTab] = useState("all"); // Tabs: all, unread, favorit
       setMessages((prev) => ({ ...prev, [chat.id]: [] })); 
     }
   };
-
+  const addNewChat = (newChat) => {
+    setChats((prevChats) => [...prevChats, newChat]);
+  };
   const handleSendMessage = (e) => {
     e.preventDefault();
     if (!newMessage.trim()) return;
@@ -175,21 +170,9 @@ const [activeTab, setActiveTab] = useState("all"); // Tabs: all, unread, favorit
      <h2 className="text-[27px] font-semibold text-gray-800  ">
           Chats
         </h2>
-        <Adds/>
+        <Adds addNewChat={addNewChat} />
      </div>
-     <div className="flex justify-around py-3 ">
-        {["all", "unread", "favorites"].map((tab) => (
-          <button
-            key={tab}
-            onClick={() => setActiveTab(tab)}
-            className={`py-2  rounded-md font-[500] leading-3 ${
-              activeTab === tab ? "  text-[#212121]" : "text-[#7C8092] "
-            }`}
-          >
-            {tab.charAt(0).toUpperCase() + tab.slice(1)}
-          </button>
-        ))}
-      </div>
+     
 
       {/* Search Bar */}
       <div className="px-[5px] bg-[#fff] flex items-center border border-[#D4D4DD]  my-[5px] rounded-[10px]">
