@@ -221,9 +221,13 @@ const [filterText, setFilterText] = useState("");
             {/* Chat Header */}
             <div className="border-b bg-[#fff] rounded-t-[20px]  border-gray-300 px-4 py-3 flex justify-between items-center">
               <div className="flex items-center">
-                
-              <Link to={`/user/${selectedChat.id}`}>
-            <img
+              <Link
+                to={{
+                  pathname: `/user/${selectedChat.id}`,
+                  // state: { selectedChat: selectedChat },  
+                }}
+              >            
+              <img
             src={selectedChat.img}
              className="w-10 h-10 object-cover rounded-full bg-gray-300 mr-3"
              />

@@ -26,7 +26,6 @@ const Roomates = () => {
             "Looking for a clean, responsible, and friendly roommate to share a [2-bedroom apartment] in [location]. I value open communication, mutual respect, and a quiet environment during weekdays.Ideal move-in date: [insert date].",
           image: profile,
           links: [
-            { text: "Match", url: "/roommate-rides" },
             { text: "Message", url: "/community-forums" },
             { text: "Cancel", url: "/events-calendar" },
           ],
@@ -38,7 +37,6 @@ const Roomates = () => {
             "Looking for a clean, responsible, and friendly roommate to share a [2-bedroom apartment] in [location]. I value open communication, mutual respect, and a quiet environment during weekdays.Ideal move-in date: [insert date].",
         image: imgs,
           links: [
-            { text: "Match", url: "/roommate-rides" },
             { text: "Message", url: "/community-forums" },
             { text: "Cancel", url: "/events-calendar" },
           ],
@@ -50,7 +48,6 @@ const Roomates = () => {
             "Looking for a clean, responsible, and friendly roommate to share a [2-bedroom apartment] in [location]. I value open communication, mutual respect, and a quiet environment during weekdays.Ideal move-in date: [insert date].",
         image: img,
           links: [
-            { text: "Match", url: "/roommate-rides" },
             { text: "Message", url: "/community-forums" },
             { text: "Cancel", url: "/events-calendar" },
           ],

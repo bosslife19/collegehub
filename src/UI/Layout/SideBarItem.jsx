@@ -65,7 +65,7 @@ const SideBarItem = ({ sidebarOpen, setSidebarOpen }) => {
   const allItems = useMemo( 
     () => [
       { text: "Dashboard", link: "/dashboard", icon: MdColorLens },
-      { text: "Community", link: "/community-group-chat", icon: FaUsersLine  },
+      { text: "Groups", link: "/community-group-chat", icon: FaUsersLine  },
       { text: "Roommates", link: "/Roommates", icon: IoBedSharp },
       { text: "Rides", link: "/Rides", icon: BiSolidCopyAlt },
       { text: "Messages", link: "/Messages", icon: FaUsers },

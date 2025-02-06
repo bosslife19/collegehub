@@ -5,11 +5,13 @@ import App from './App.jsx'
 import { ToastContainer } from 'react-toastify'
 import { AuthProvider } from './context/AuthContext.jsx'
 import { ProfileImageProvider } from './context/ProfileContext.jsx'
+import { UserProvider } from './context/UserDetailsContext.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
       <ProfileImageProvider>
+      <UserProvider>
     <App />
     <ToastContainer 
      position="top-right"  // Position of the toast
@@ -23,6 +25,7 @@ createRoot(document.getElementById('root')).render(
      pauseOnHover={true}     // Pause the toast on hover
      theme="light"      
     />
+    </UserProvider>
     </ProfileImageProvider>
     </AuthProvider>
     
