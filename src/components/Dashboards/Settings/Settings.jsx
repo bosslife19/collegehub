@@ -68,7 +68,7 @@ const SettingsPage = ({profileImage}) => {
               key={tab.label}
               className={`font-semibold flex items-center gap-3   text-start text-[10px] lg:text-sm px-4 py-3 rounded-lg w-full ${
                 activeTab === tab.label
-                  ? "bg-purple-100 text-[#212121] border-r-4 border-[#000]"
+                  ? "bg-purple-100 text-[#212121] border-r-4 border-[#91447B]"
                   : "text-gray-700 hover:bg-gray-100"
               }`}
               onClick={() => setActiveTab(tab.label)}
