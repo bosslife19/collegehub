@@ -16,6 +16,7 @@
     "@lottiefiles/dotlottie-react": "^0.12.1",
     "@react-google-maps/api": "^2.20.5",
     "axios": "^1.7.9",
+    "collgehub": "file:",
     "country-list": "^2.3.0",
     "emoji-mart": "^5.6.0",
     "framer-motion": "^11.18.0",

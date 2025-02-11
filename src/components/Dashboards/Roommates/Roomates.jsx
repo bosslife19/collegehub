@@ -1,10 +1,10 @@
-import img from "../../../assets/slide1.png";
+// import img from "../../../assets/slide1.png";
 import imgs from "../../../assets/slide2.jpg";
 import Slider from "react-slick";
 import ArrowRight from "../../../assets/right.png";
 import ArrowLeft from "../../../assets/left.png";
 import profile from "../../../assets/imgprf.png";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Loader from "../../../alert/welcomLoading/loader";
 import { useState } from "react";
 import RoommateModal from "./AddRoommate";
@@ -45,7 +45,7 @@ const Roomates = () => {
 
   const NextArrow = ({ onClick }) => (
     <button
-      className="absolute top-[400px] md:top-1/2 py-[10px] px-[10px] md:py-[15px] md:px-[15px] right-0 transform -translate-y-1/2 z-10 bg-[#fff] text-black rounded-full shadow-md"
+      className="absolute top-[50%] md:top-1/2 py-[10px] px-[10px] md:py-[15px] md:px-[15px] right-0 transform -translate-y-1/2 z-10 bg-[#fff] text-black rounded-full shadow-md"
       onClick={onClick}
     >
       <img src={ArrowRight} className="w-[15px] md:w-[25px] h-[15px] md:h-[25px] object-contain" />
@@ -54,7 +54,7 @@ const Roomates = () => {
 
   const PrevArrow = ({ onClick }) => (
     <button
-      className="absolute top-[400px] py-[10px] px-[10px] md:py-[15px] md:px-[15px] md:top-1/2 left-0 transform -translate-y-1/2 z-10 bg-[#fff] rounded-full text-black shadow-md"
+      className="absolute top-[50%] py-[10px] px-[10px] md:py-[15px] md:px-[15px] md:top-1/2 left-0 transform -translate-y-1/2 z-10 bg-[#fff] rounded-full text-black shadow-md"
       onClick={onClick}
     >
       <img src={ArrowLeft} className="w-[15px] md:w-[25px] h-[15px] md:h-[25px] object-contain" />
@@ -78,9 +78,9 @@ const Roomates = () => {
       {isLoading ? (
         <Loader onComplete={() => setIsLoading(false)} />
       ) : (
-        <div className="anaheim-font">
+        <div className="anaheim-font h-[100vh] md:h-[120vh] overflow-hidden">
           <div className="flex justify-start mt-4 mb-6">
-            <button onClick={openModal} className="bg-[#91447B] text-white py-3 px-6 rounded-full border-none outline-none text-lg">
+            <button onClick={openModal} className="bg-[#91447B] text-white py-2 px-4 rounded-[5px] border-none outline-none text-lg">
               Add New Roommate
             </button>
           </div>
@@ -113,6 +113,7 @@ const Roomates = () => {
                       <p className="text-[13px] tracking-[1px] md:text-[18px] md:leading-[23.2px] font-[400] md:px-[5px] md:mt-2">
                         {truncateText(roommate.paragraph, 31)}
                       </p>
+                      
                     </div>
                   </div>
                 </div>

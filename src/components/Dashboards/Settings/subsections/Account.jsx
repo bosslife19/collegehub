@@ -3,7 +3,7 @@ import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { IoMdClose } from "react-icons/io";
 
 const Account = () => {
-  const [email, setEmail] = useState("");
+  // const [email, setEmail] = useState("");
    const [allowFriends, setAllowFriends] = useState(true);
   const [showPasswordFields, setShowPasswordFields] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -13,7 +13,7 @@ const Account = () => {
   const [modalMessage, setModalMessage] = useState("");
   const [showModal, setShowModal] = useState(false);
 
-  const handleEmailChange = (e) => setEmail(e.target.value);
+  // const handleEmailChange = (e) => setEmail(e.target.value);
    const handleToggleFriends = () => setAllowFriends((prev) => !prev);
 
   const handleDisableAccount = () => {
@@ -76,7 +76,7 @@ const Account = () => {
       )}
 
       {/* Email Input */}
-      <div className="mb-4 gap-[20px] flex flex-col">
+      {/* <div className="mb-4 gap-[20px] flex flex-col">
         <label className="block text-gray-600 font-medium " htmlFor="email">
           Email
         </label>
@@ -94,7 +94,7 @@ const Account = () => {
           >
             Change Email
           </button>
-      </div>
+      </div> */}
 
       {/* Change Password */}
       <div className="my-4">

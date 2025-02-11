@@ -33,17 +33,17 @@ const RoommateModal = ({ isOpen, onClose, setRoommates }) => {
 
   return (
     isOpen && (
-      <div className="fixed inset-0 px-[40px] bg-gray-800 bg-opacity-50 flex items-center justify-center z-[2000]">
-        <div className="bg-white p-6 rounded-md w-full   lg:w-1/3">
-          <h2 className="text-xl mb-4">Add New Roommate</h2>
-          <form onSubmit={handleSubmit}>
+      <div className="fixed inset-0 font-poppins px-[40px] bg-black bg-opacity-60 flex items-center justify-center z-[2000]">
+        <div className="bg-white p-[20px] md:p-[50px] rounded-md w-full   xl:w-1/2">
+          <h2 className="text-xl mb-[20px] md:mb-[40px] text-center font-[600] md:text-[31px] font-poppins text-[#212121]  ">Add New Roommate</h2>
+          <form className="space-y-[15px] md:space-y-[30px] " onSubmit={handleSubmit}>
             <input
               type="text"
               name="name"
               placeholder="Name"
               value={roommate.name}
               onChange={handleChange}
-              className="block w-full mb-2 p-2 border outline-none"
+              className="block w-full mb-2 p-2 md:p-4 border outline-none"
               required
             />
             <input
@@ -52,7 +52,7 @@ const RoommateModal = ({ isOpen, onClose, setRoommates }) => {
               placeholder="Location"
               value={roommate.location}
               onChange={handleChange}
-              className="block w-full mb-2 p-2 border outline-none"
+              className="block w-full mb-2 p-2 md:p-4 border outline-none"
               required
             />
             <textarea
@@ -60,7 +60,7 @@ const RoommateModal = ({ isOpen, onClose, setRoommates }) => {
               placeholder="Description"
               value={roommate.paragraph}
               onChange={handleChange}
-              className="block w-full mb-2 p-2 border outline-none"
+              className="block w-full resize-none mb-2 p-2 md:p-4 border outline-none"
               required
             />
 
@@ -68,15 +68,15 @@ const RoommateModal = ({ isOpen, onClose, setRoommates }) => {
               type="file"
               accept="image/*"
               onChange={handleImageChange}
-              className="block w-full mb-2"
+              className="block w-full lg:w-[200px] xl:w-[300px] mb-2"
             />
             {imagePreview && <img src={imagePreview} alt="Preview" className="w-full h-32 object-cover mb-2" />}
 
             <div className="flex justify-end">
-              <button type="button" onClick={onClose} className="mr-2 px-4 py-2 bg-gray-400 text-white rounded">
+              <button type="button" onClick={onClose} className="mr-2 px-4 py-2 font-bold text-[#91447B] font-nunito rounded">
                 Cancel
               </button>
-              <button type="submit" className="px-4 py-2 bg-[#91447B] text-white rounded">
+              <button type="submit" className="px-4 py-2 bg-[#91447B] font-alata text-white rounded">
                 Add Roommate
               </button>
             </div>
